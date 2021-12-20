@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
+import GallerPage from './pages/Gallery/GallerPage';
+import HomePage from './pages/HomePage/HomePage';
+import AboutPage from './pages/AboutPage/AboutPage';
+import OfferPage from './pages/OfferPage/OfferPage';
+import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
+import RulesPage from './pages/RulesPage/RulesPage';
+import ActionsPage from './pages/ActionsPage/ActionsPage';
+import ContactsPage from './pages/ContactsPage/ContactsPage';
+import SiterRu from './SiterRu';
 
 function App() {
+  const changeLanguage = () =>{
+    document.querySelector("html").setAttribute("lang", "en");
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+          <Header />
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/gallery" element={<GallerPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/delivery" element={<DeliveryPage />} />
+              <Route path="/offer" element={<OfferPage />} />
+              <Route path="/rules" element={<RulesPage />} />
+              <Route path="/actions" element={<ActionsPage />} />
+              <Route path="/contacts" element={<ContactsPage />} />
+            </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
