@@ -28,6 +28,9 @@ const ContactsPage = () => {
                phone="1089"
                telegramLink="http://t.me/yaponamamabot"
                iosLink="https://apps.apple.com/uz/app/yaponamama-restaurant/id1457179873"
+               androindLink="https://play.google.com/store/apps/details?id=uz.futuresoft.yaponamama&amp;hl=ru&amp;gl=US"
+               phonePred="+998901866750"
+               email="info@yaponamama.uz"
                />
                <ContactsPageBrandInfo name="Yaponamama Бухара" phoneNumber="+99878-147-89-89" phoneReservation="+998993701213; +998991601213" timePeriod="11:00 - 22:00" address=" г. Бухара, ул. Навоишох, 16" orinter="5й микрорайон, Макро"></ContactsPageBrandInfo>
                <ContactsPageBrandInfo name="Yaponamama Бухара" phoneNumber="+99878-147-89-89" phoneReservation="+998993701213; +998991601213" timePeriod="11:00 - 22:00" address=" г. Бухара, ул. Навоишох, 16" orinter="5й микрорайон, Макро"></ContactsPageBrandInfo>
