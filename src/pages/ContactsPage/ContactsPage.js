@@ -27,6 +27,7 @@ const ContactsPage = () => {
                about="Yapona Mama - доставка суши и роллов в Ташкенте. Мы готовим только из качественных продуктов мировых производителей, трепетно относимся к каждому заказу и всегда доставляем вовремя." 
                phone="1089"
                telegramLink="http://t.me/yaponamamabot"
+               iosLink="https://apps.apple.com/uz/app/yaponamama-restaurant/id1457179873"
                />
                <ContactsPageBrandInfo name="Yaponamama Бухара" phoneNumber="+99878-147-89-89" phoneReservation="+998993701213; +998991601213" timePeriod="11:00 - 22:00" address=" г. Бухара, ул. Навоишох, 16" orinter="5й микрорайон, Макро"></ContactsPageBrandInfo>
                <ContactsPageBrandInfo name="Yaponamama Бухара" phoneNumber="+99878-147-89-89" phoneReservation="+998993701213; +998991601213" timePeriod="11:00 - 22:00" address=" г. Бухара, ул. Навоишох, 16" orinter="5й микрорайон, Макро"></ContactsPageBrandInfo>
