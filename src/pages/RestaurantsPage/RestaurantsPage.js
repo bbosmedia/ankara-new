@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import RestaurantListItem from '../../components/RestaurantPage/RestaurantListItem'
+import RestaurantsPageBreadCrumb from '../../components/RestaurantPage/RestaurantsPageBreadCrumb'
 
 const RestaurantsPage = () => {
     return (
@@ -17,17 +18,9 @@ const RetaurantsList = (lang, restaurants) =>{
    <div className="ya-restaurant-listview">
       <div className="container-fluid ya-container-fluid">
          <div className="ya-page-block">
-            <nav aria-label="breadcrumb">
-               <ol className="breadcrumb ya-breadcrumb">
-                  <li className="breadcrumb-item"><a href="/" className="nuxt-link-active">
-                     Главная
-                     </a>
-                  </li>
-                  <li aria-current="page" className="breadcrumb-item active">
-                     Рестораны
-                  </li>
-               </ol>
-            </nav>
+         <RestaurantsPageBreadCrumb
+             lang={lang}
+              />
             <div className="d-flex justify-content-between">
                <h1 className="ya-group-title">Рестораны</h1>
                <div className="ya-res-cn"><button className="btn btn-default ya-btn-gray">
@@ -68,17 +61,9 @@ const RetaurantsList = (lang, restaurants) =>{
         <div className="ya-restaurant-listview">
            <div className="container-fluid ya-container-fluid">
               <div className="ya-page-block">
-                 <nav aria-label="breadcrumb">
-                    <ol className="breadcrumb ya-breadcrumb">
-                       <li className="breadcrumb-item"><a href="/" className="nuxt-link-active">
-                          Главная
-                          </a>
-                       </li>
-                       <li aria-current="page" className="breadcrumb-item active">
-                          Рестораны
-                       </li>
-                    </ol>
-                 </nav>
+              <RestaurantsPageBreadCrumb
+             lang={lang}
+              />
                  <div className="d-flex justify-content-between">
                     <h1 className="ya-group-title">Рестораны</h1>
                     <div className="ya-res-cn"><button className="btn btn-default ya-btn-gray">
@@ -103,17 +88,9 @@ const RetaurantsList = (lang, restaurants) =>{
    <div className="ya-restaurant-listview">
       <div className="container-fluid ya-container-fluid">
          <div className="ya-page-block">
-            <nav aria-label="breadcrumb">
-               <ol className="breadcrumb ya-breadcrumb">
-                  <li className="breadcrumb-item"><a href="/" className="nuxt-link-active">
-                     Главная
-                     </a>
-                  </li>
-                  <li aria-current="page" className="breadcrumb-item active">
-                     Рестораны
-                  </li>
-               </ol>
-            </nav>
+             <RestaurantsPageBreadCrumb
+             lang={lang}
+              />
             <div className="d-flex justify-content-between">
                <h1 className="ya-group-title">Рестораны</h1>
                <div className="ya-res-cn"><button className="btn btn-default ya-btn-gray">
