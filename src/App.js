@@ -15,6 +15,7 @@ import RulesPage from './pages/RulesPage/RulesPage';
 import ActionsPage from './pages/ActionsPage/ActionsPage';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
 import SiterRu from './SiterRu';
+import RestaurantsPage from './pages/RestaurantsPage/RestaurantsPage';
 
 function App() {
   const changeLanguage = () =>{
@@ -33,6 +34,7 @@ function App() {
               <Route path="/rules" element={<RulesPage />} />
               <Route path="/actions" element={<ActionsPage />} />
               <Route path="/contacts" element={<ContactsPage />} />
+              <Route path="/restaurants" element={<RestaurantsPage />} />
             </Routes>
         <Footer />
       </div>

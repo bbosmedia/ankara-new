@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 import ContactsPageBrandInfo from '../../components/ContactsPageBrachInfo/ContactsPageBrandInfo';
 import ContactsPageInfo from '../../components/ContactsPageInfo/ContactsPageInfo';
+import useBreadcrumbs from 'use-react-router-breadcrumbs';
 
 const ContactsPage = () => {
+   const breadcrumbs = useBreadcrumbs();
     return (
         <div data-v-b186a8c8="" className="container-fluid ya-container-fluid">
    <div data-v-b186a8c8="" className="ya-page-block">
@@ -19,7 +21,7 @@ const ContactsPage = () => {
             </li>
          </ol>
       </nav>
-      <h1 data-v-b186a8c8="" className="ya-group-title">Контакты</h1>
+      {ContactHeader(breadcrumbs[1].key)}
       <div data-v-b186a8c8="" className="row">
          <div data-v-b186a8c8="" className="col-md-6">
             <div data-v-b186a8c8="" className="ya-page-text">
@@ -67,6 +69,16 @@ const ContactsPage = () => {
    </div>
 </div>
     )
+}
+
+function ContactHeader(lang){
+   if(lang === '/uz'){
+      return (<h1 className="ya-group-title">Aloqa</h1>);
+   }else if(lang === '/en'){
+      return (<h1 className="ya-group-title">Contacts</h1>);
+   }else{
+      return (<h1 className="ya-group-title">Контакты</h1>);
+   }
 }
 
 export default ContactsPage
