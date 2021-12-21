@@ -1,0 +1,18 @@
+.yandex-map-de{
+    position: relative;
+    height: 80vh;
+}
+
+.yandexmap{
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.yandex-map-buttonsa{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

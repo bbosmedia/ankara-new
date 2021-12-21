@@ -14,7 +14,6 @@ import DeliveryPage from './pages/DeliveryPage/DeliveryPage';
 import RulesPage from './pages/RulesPage/RulesPage';
 import ActionsPage from './pages/ActionsPage/ActionsPage';
 import ContactsPage from './pages/ContactsPage/ContactsPage';
-import SiterRu from './SiterRu';
 import RestaurantsPage from './pages/RestaurantsPage/RestaurantsPage';
 
 function App() {
