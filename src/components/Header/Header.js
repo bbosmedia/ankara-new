@@ -1,18 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-import ComputerMenu from './ComputerMenu';
-import './Header.css'
-import MobileMenu from './MobileMenu';
+import React from "react";
+import { Link } from "react-router-dom";
+import ComputerMenu from "./ComputerMenu";
+import "./Header.css";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
-    return (
+  return (
     <>
-        <div id='header' className='sticky-top'>
-            <MobileMenu />
-            <ComputerMenu />
-        </div>
+      <div id="header" className="sticky-top">
+        <MobileMenu />
+        <ComputerMenu />
+      </div>
     </>
-    )
-}
+  );
+};
 
-export default Header
+export default Header;
