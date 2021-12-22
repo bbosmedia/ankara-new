@@ -5,11 +5,11 @@ import HomePageMiniMenu from '../../components/HomePageMiniMenu/HomePageMiniMenu
 import HomePageProducts from '../../components/HomePageProducts/HomePageProducts'
 import './HomePage.css'
 
-const HomePage = () => {
+const HomePage = ({lang}) => {
     return (
         <div>
           <SliderHomepage />
-          <HomePageMiniMenu />
+          <HomePageMiniMenu lang={lang} />
           <HomePageProducts />
         </div>
     )

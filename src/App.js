@@ -22,6 +22,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/uz" element={<HomePage lang="/uz" />} />
+          <Route path="/en" element={<HomePage lang="/en" />} />
           <Route path="/gallery" element={<GallerPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/delivery" element={<DeliveryPage />} />

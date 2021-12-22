@@ -1,11 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import CompyrightClaim from './CompyrightClaim';
-import './Footer.css'
 
-const Footer = () => {
+const FooterRu = () => {
     return (
-        <footer>
         <div className="ya-footer">
             <div className="container-fluid ya-container-fluid">
                 <div className="row">
@@ -33,9 +29,6 @@ const Footer = () => {
                             </li>
                         </ul>
                         <ul className="ya-footer-menu list-unstyled">
-                            <li className="fm-item d-none">
-                                <Link to="/vacancy">Вакансии</Link>
-                            </li>
                             <li className="fm-item">
                                 <Link to="/gallery">Галерея</Link>
                             </li>
@@ -73,9 +66,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-        <CompyrightClaim />
-        </footer>
     )
 }
 
-export default Footer
+export default FooterRu

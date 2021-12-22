@@ -1,11 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-import CompyrightClaim from './CompyrightClaim';
-import './Footer.css'
 
-const Footer = () => {
+const FooterEn = () => {
     return (
-        <footer>
         <div className="ya-footer">
             <div className="container-fluid ya-container-fluid">
                 <div className="row">
@@ -16,26 +12,23 @@ const Footer = () => {
                     <div className="d-flex align-items-start justify-content-between ya-footer-list">
                         <ul className="ya-footer-menu list-unstyled">
                             <li className="fm-item">
-                                <Link to="/about" className="">О нас</Link>
+                                <Link to="/en/about" className="">About Us</Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/menu" className="">Меню</Link>
+                                <Link to="/en/menu" className="">Menu/Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/actions" className="">Акции
+                                <Link to="/en/actions" className="">Sales
                                 </Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/restaurants" className="">Рестораны</Link>
+                                <Link to="/en/restaurants" className="">Restaurants</Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/delivery" className="">Доставка</Link>
+                                <Link to="/en/delivery" className="">Delivery</Link>
                             </li>
                         </ul>
                         <ul className="ya-footer-menu list-unstyled">
-                            <li className="fm-item d-none">
-                                <Link to="/vacancy">Вакансии</Link>
-                            </li>
                             <li className="fm-item">
                                 <Link to="/gallery">Галерея</Link>
                             </li>
@@ -73,9 +66,7 @@ const Footer = () => {
                 </div>
             </div>
         </div>
-        <CompyrightClaim />
-        </footer>
     )
 }
 
-export default Footer
+export default FooterEn
