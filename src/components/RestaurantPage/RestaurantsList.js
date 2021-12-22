@@ -11,7 +11,7 @@ const RestaurantsList = ({ lang, restaurants, setPageName }) => {
             <div className="ya-page-block">
               <RestaurantsPageBreadCrumb lang={lang} />
               <div className="d-flex justify-content-between">
-                <h1 className="ya-group-title">Рестораны</h1>
+                <h1 className="ya-group-title">Restoranlar</h1>
                 <div className="ya-res-cn">
                   <button
                     onClick={() => setPageName()}
@@ -49,7 +49,7 @@ const RestaurantsList = ({ lang, restaurants, setPageName }) => {
             <div className="ya-page-block">
               <RestaurantsPageBreadCrumb lang={lang} />
               <div className="d-flex justify-content-between">
-                <h1 className="ya-group-title">Рестораны</h1>
+                <h1 className="ya-group-title">Restaurants</h1>
                 <div className="ya-res-cn">
                   <button
                     className="btn btn-default ya-btn-gray"

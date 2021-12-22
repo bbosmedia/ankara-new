@@ -3,7 +3,7 @@ import './Restaurant.css'
 import RestaurantsList from '../../components/RestaurantPage/RestaurantsList';
 import YandexMapRest from '../../components/RestaurantPage/YandexMapRest';
 
-const RestaurantsPage = () => {
+const RestaurantsPage = ({lang}) => {
 
     const [pagename, setPagename] = useState('resaturants');
 
@@ -17,11 +17,11 @@ const RestaurantsPage = () => {
     if(pagename === 'resaturants'){
         return (
             <div>
-                <RestaurantsList setPageName={setPageName}/>
+                <RestaurantsList lang={lang} setPageName={setPageName}/>
             </div>
         )
     }else{
-        return <YandexMapRest setPagename={setPageName} />
+        return <YandexMapRest lang={lang} setPagename={setPageName} />
     }
 }
 

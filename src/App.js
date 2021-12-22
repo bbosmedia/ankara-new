@@ -33,7 +33,9 @@ function App() {
               <Route path="/rules" element={<RulesPage />} />
               <Route path="/actions" element={<ActionsPage />} />
               <Route path="/contacts" element={<ContactsPage />} />
-              <Route path="/restaurants" element={<RestaurantsPage />} />
+              <Route path="/restaurants" element={<RestaurantsPage lang="/ru" />} />
+              <Route path="/uz/restaurants" element={<RestaurantsPage lang="/uz" />} />
+              <Route path="/en/restaurants" element={<RestaurantsPage lang="/en" />} />
             </Routes>
         <Footer />
       </div>

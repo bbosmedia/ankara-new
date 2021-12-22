@@ -17,7 +17,7 @@ const RestaurantListItem = ({name, address, phoneNumber, time, id, lang}) => {
                </p>
             </td>
             <td className="text-right">
-               <p className="mb-4"><img height="30" className="mr-2 lazyLoad isLoaded" src="images/iconsrestaurant/ic_wifi.fce2aa5.svg" /> <img height="30" className="mr-2 lazyLoad isLoaded" src="images/iconsrestaurant/ic_parking.d9f87ef.svg" /> <img height="30" src="images/iconsrestaurant/ic_360w.43e7c40.svg" className="lazyLoad isLoaded" /></p>
+               <p className="mb-4"><img height="30" className="mr-2 lazyLoad isLoaded" src="/images/iconsrestaurant/ic_wifi.fce2aa5.svg" /> <img height="30" className="mr-2 lazyLoad isLoaded" src="/images/iconsrestaurant/ic_parking.d9f87ef.svg" /> <img height="30" src="/images/iconsrestaurant/ic_360w.43e7c40.svg" className="lazyLoad isLoaded" /></p>
                <div ><Link to={`/en/restaurants/${id}`} className="ya-restaurant-more">More about the branch</Link></div>
             </td>
          </tr>
@@ -37,7 +37,11 @@ const RestaurantListItem = ({name, address, phoneNumber, time, id, lang}) => {
                </p>
             </td>
             <td className="text-right">
-               <p className="mb-4"><img height="30" className="mr-2 lazyLoad isLoaded" src="images/iconsrestaurant/ic_wifi.fce2aa5.svg" /> <img height="30" className="mr-2 lazyLoad isLoaded" src="images/iconsrestaurant/ic_parking.d9f87ef.svg" /> <img height="30" src="images/iconsrestaurant/ic_360w.43e7c40.svg" className="lazyLoad isLoaded" /></p>
+               <p className="mb-4">
+               <img height="30" className="mr-2 lazyLoad isLoaded" src="/images/iconsrestaurant/ic_wifi.fce2aa5.svg" />
+                  <img height="30" className="mr-2 lazyLoad isLoaded" src="/images/iconsrestaurant/ic_parking.d9f87ef.svg" />
+                  <img height="30" src="/images/iconsrestaurant/ic_360w.43e7c40.svg" className="lazyLoad isLoaded" />
+                  </p>
                <div ><Link to={`/uz/restaurants/${id}`} className="ya-restaurant-more">Shahobcha haqida batafsil</Link></div>
             </td>
          </tr>
@@ -57,7 +61,11 @@ const RestaurantListItem = ({name, address, phoneNumber, time, id, lang}) => {
                </p>
             </td>
             <td className="text-right">
-               <p className="mb-4"><img height="30" className="mr-2 lazyLoad isLoaded" src="images/iconsrestaurant/ic_wifi.fce2aa5.svg" /> <img height="30" className="mr-2 lazyLoad isLoaded" src="images/iconsrestaurant/ic_parking.d9f87ef.svg" /> <img height="30" src="images/iconsrestaurant/ic_360w.43e7c40.svg" className="lazyLoad isLoaded" /></p>
+               <p className="mb-4">
+                  <img height="30" className="mr-2 lazyLoad isLoaded" src="/images/iconsrestaurant/ic_wifi.fce2aa5.svg" />
+                  <img height="30" className="mr-2 lazyLoad isLoaded" src="/images/iconsrestaurant/ic_parking.d9f87ef.svg" />
+                  <img height="30" src="/images/iconsrestaurant/ic_360w.43e7c40.svg" className="lazyLoad isLoaded" />
+                  </p>
                <div ><Link to={`/restaurants/${id}`} className="ya-restaurant-more">Подробнее о филиале</Link></div>
             </td>
          </tr>
