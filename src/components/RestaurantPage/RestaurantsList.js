@@ -10,7 +10,6 @@ const RestaurantsList = ({ lang, setPageName }) => {
       try{
           var items = await axios.get('https://api.ankara.uz/restaurants')
           setRestaurantlist(items.data);
-          console.log(items.data);
       }catch(e){
           console.log(e);
       }

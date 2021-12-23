@@ -9,7 +9,6 @@ const HomePageMiniMenu = ({lang}) => {
         try{
             var items = await axios.get('https://api.ankara.uz/shop/category')
             setMinimenu(items.data);
-            console.log(items.data);
         }catch(e){
             console.log(e);
         }

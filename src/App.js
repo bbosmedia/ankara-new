@@ -21,16 +21,25 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
+
+          {/* Main Page */}
           <Route path="/" element={<HomePage />} />
           <Route path="/uz" element={<HomePage lang="/uz" />} />
           <Route path="/en" element={<HomePage lang="/en" />} />
+
+          {/* Gallery Page */}
           <Route path="/gallery" element={<GallerPage />} />
+          <Route path="/uz/gallery" element={<GallerPage lang="/uz" />} />
+          <Route path="/en/gallery" element={<GallerPage lang="/en" />} />
+
           <Route path="/about" element={<AboutPage />} />
           <Route path="/delivery" element={<DeliveryPage />} />
           <Route path="/offer" element={<OfferPage />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/actions" element={<ActionsPage />} />
           <Route path="/contacts" element={<ContactsPage />} />
+
+          {/* Restaurants */}
           <Route path="/restaurants" element={<RestaurantsPage lang="/ru" />} />
           <Route
             path="/uz/restaurants"
@@ -41,6 +50,8 @@ function App() {
             element={<RestaurantsPage lang="/en" />}
           />
         </Routes>
+
+        {/* Footer */}
         <Footer />
       </div>
     </Router>
