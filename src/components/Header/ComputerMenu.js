@@ -5,7 +5,7 @@ import ComputerMenuUz from "./ComputerMenu/ComputerMenuUz";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 
 const ComputerMenu = () => {
-  const [lang, setLang] = useState("/uz");
+  const [lang, setLang] = useState("/ru");
   const breadcrumbs = useBreadcrumbs();
   useEffect(() => {
     if (breadcrumbs.length > 1) {

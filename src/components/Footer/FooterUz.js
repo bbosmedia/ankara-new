@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const FooterEn = () => {
+const FooterUz = () => {
   return (
     <div className="ya-footer">
       <div className="container-fluid ya-container-fluid">
@@ -9,7 +9,7 @@ const FooterEn = () => {
           <div className="col-sm-12 col-md-3 col-lg-4">
             <div className="ya-footer-logo mb-5">
               <Link
-                to="/en"
+                to="/uz"
                 aria-current="page"
                 className="nuxt-link-exact-active nuxt-link-active"
               >
@@ -26,43 +26,43 @@ const FooterEn = () => {
             <div className="d-flex align-items-start justify-content-between ya-footer-list">
               <ul className="ya-footer-menu list-unstyled">
                 <li className="fm-item">
-                  <Link to="/en/about" className="">
-                    About Us
+                  <Link to="/uz/about" className="">
+                    Biz Haqimizda
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/menu" className="">
+                  <Link to="/uz/menu" className="">
                     Menu
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/actions" className="">
-                    Sales
+                  <Link to="/uz/actions" className="">
+                    Aksiyalar
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/restaurants" className="">
-                    Restaurants
+                  <Link to="/uz/restaurants" className="">
+                    Restoranlar
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/delivery" className="">
-                    Delivery
+                  <Link to="/uz/delivery" className="">
+                    Yetkazib Berish
                   </Link>
                 </li>
               </ul>
               <ul className="ya-footer-menu list-unstyled">
                 <li className="fm-item">
-                  <Link to="/en/gallery">GALLERY</Link>
+                  <Link to="/uz/gallery">Galereya</Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/contacts">Contacts</Link>
+                  <Link to="/uz/contacts">Aloqa</Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/offer">Public Offer</Link>
+                  <Link to="/uz/offer">Ommaviy Taklif</Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/rules">RESTAURANT VISITING RULES</Link>
+                  <Link to="/uz/rules">RESTORANGA KELISH SHARTLARI</Link>
                 </li>
               </ul>
               <div className="ya-footer-detail text-right">
@@ -70,10 +70,10 @@ const FooterEn = () => {
                   <p className="ya-footer-phone mb-0">
                     <a href="tel:1089">1089</a>
                   </p>
-                  <p className="ya-footer-time">from 10:00 to 02:00</p>
+                  <p className="ya-footer-time">с 10:00 dan 02:00 gacha</p>
                 </div>
                 <div className="ya-social-list">
-                  <p>Share on social networks</p>
+                  <p>Ijtimoiy tarmoqlarda ulashing</p>
                   <ul className="ya-social">
                     <li>
                       <a
@@ -142,4 +142,4 @@ const FooterEn = () => {
   );
 };
 
-export default FooterEn;
+export default FooterUz;

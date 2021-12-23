@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const FooterRu = () => {
     return (
@@ -6,7 +7,7 @@ const FooterRu = () => {
             <div className="container-fluid ya-container-fluid">
                 <div className="row">
                 <div className="col-sm-12 col-md-3 col-lg-4">
-                    <div className="ya-footer-logo mb-5"><a href="/" aria-current="page" className="nuxt-link-exact-active nuxt-link-active"><img height="65" src="/images/logo.svg" className="lazyLoad isLoaded" alt='logo' /></a></div>
+                    <div className="ya-footer-logo mb-5"><Link to="/" aria-current="page" className="nuxt-link-exact-active nuxt-link-active"><img height="65" src="/images/logo.svg" className="lazyLoad isLoaded" alt='logo' /></Link></div>
                     </div>
                     <div className="col-sm-12 col-md-9 col-lg-8">
                     <div className="d-flex align-items-start justify-content-between ya-footer-list">
