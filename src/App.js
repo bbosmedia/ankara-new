@@ -11,6 +11,7 @@ import RulesPage from "./pages/RulesPage/RulesPage";
 import ActionsPage from "./pages/ActionsPage/ActionsPage";
 import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
+import GalleryItemPage from "./pages/GalleryItemPage/GalleryItemPage";
 
 function App() {
   const changeLanguage = () => {
@@ -31,6 +32,11 @@ function App() {
           <Route path="/gallery" element={<GallerPage />} />
           <Route path="/uz/gallery" element={<GallerPage lang="/uz" />} />
           <Route path="/en/gallery" element={<GallerPage lang="/en" />} />
+
+           {/* Gallery SubPage */}
+           <Route path="/gallery/:id" element={<GalleryItemPage />} />
+          <Route path="/uz/gallery/:id" element={<GalleryItemPage lang="/uz" />} />
+          <Route path="/en/gallery/:id" element={<GalleryItemPage lang="/en" />} />
 
           <Route path="/about" element={<AboutPage />} />
           <Route path="/delivery" element={<DeliveryPage />} />
