@@ -1,8 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import RestaurantListItem from '../../components/RestaurantPage/RestaurantListItem'
 import RestaurantsPageBreadCrumb from '../../components/RestaurantPage/RestaurantsPageBreadCrumb'
 
-const RestaurantsList = ({ lang, restaurants, setPageName }) => {
+const RestaurantsList = ({ lang, setPageName }) => {
+  const [restaurantlist, setRestaurantlist] =  useState([]);
+
+  const fetchRestauranList = async() =>{
+      try{
+          var items = await axios.get('https://api.ankara.uz/restaurants')
+          setRestaurantlist(items.data);
+          console.log(items.data);
+      }catch(e){
+          console.log(e);
+      }
+  }
+
+  useEffect(() => {
+    fetchRestauranList()
+  }, [lang])
+
+
   if (lang === "/uz") {
     return (
       <div className="ya-restaurants">
@@ -26,14 +44,17 @@ const RestaurantsList = ({ lang, restaurants, setPageName }) => {
               </div>
               <div className="ya-restaurants-list">
                 <table className="table table-hover">
-                  <RestaurantListItem
-                    lang="/uz"
-                    name="YAPONAMAMA ШОТА"
-                    address="Яккасарайский район, улица Ш. Руставели 69а/3"
-                    phoneNumber="+99898-251-12-13; +99871-253-12-13"
-                    time="10:00 - 22:00"
-                    id="1"
-                  />
+                  {restaurantlist.map(item =>
+                     <RestaurantListItem
+                     key={item.id}
+                     lang="/uz"
+                     name={item.titleUz}
+                     address={item.addressUz}
+                     phoneNumber={item.phone}
+                     time={item.workingTime}
+                     id={item.id}
+                   />
+                  )}
                 </table>
               </div>
             </div>
@@ -62,14 +83,17 @@ const RestaurantsList = ({ lang, restaurants, setPageName }) => {
               </div>
               <div className="ya-restaurants-list">
                 <table className="table table-hover">
-                  <RestaurantListItem
-                    lang="/en"
-                    name="YAPONAMAMA ШОТА"
-                    address="Яккасарайский район, улица Ш. Руставели 69а/3"
-                    phoneNumber="+99898-251-12-13; +99871-253-12-13"
-                    time="10:00 - 22:00"
-                    id="1"
-                  />
+                {restaurantlist.map(item =>
+                     <RestaurantListItem
+                     key={item.id}
+                     lang="/en"
+                     name={item.titleEn}
+                     address={item.addressEn}
+                     phoneNumber={item.phone}
+                     time={item.workingTime}
+                     id={item.id}
+                   />
+                  )}
                 </table>
               </div>
             </div>
@@ -98,14 +122,17 @@ const RestaurantsList = ({ lang, restaurants, setPageName }) => {
               </div>
               <div className="ya-restaurants-list">
                 <table className="table table-hover">
-                  <RestaurantListItem
-                    lang="/ru"
-                    name="YAPONAMAMA ШОТА"
-                    address="Яккасарайский район, улица Ш. Руставели 69а/3"
-                    phoneNumber="+99898-251-12-13; +99871-253-12-13"
-                    time="10:00 - 22:00"
-                    id="1"
-                  />
+                {restaurantlist.map(item =>
+                     <RestaurantListItem
+                     key={item.id}
+                     lang="/ru"
+                     name={item.titleRu}
+                     address={item.addressRu}
+                     phoneNumber={item.phone}
+                     time={item.workingTime}
+                     id={item.id}
+                   />
+                  )}
                 </table>
               </div>
             </div>
