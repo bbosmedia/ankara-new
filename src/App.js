@@ -39,7 +39,9 @@ function App() {
           <Route path="/uz/gallery/:id" element={<GalleryItemPage lang="/uz" />} />
           <Route path="/en/gallery/:id" element={<GalleryItemPage lang="/en" />} />
 
+          {/* About Page */}
           <Route path="/about" element={<AboutPage />} />
+
           <Route path="/delivery" element={<DeliveryPage />} />
           <Route path="/offer" element={<OfferPage />} />
           <Route path="/rules" element={<RulesPage />} />
@@ -48,14 +50,8 @@ function App() {
 
           {/* Restaurants */}
           <Route path="/restaurants" element={<RestaurantsPage lang="/ru" />} />
-          <Route
-            path="/uz/restaurants"
-            element={<RestaurantsPage lang="/uz" />}
-          />
-          <Route
-            path="/en/restaurants"
-            element={<RestaurantsPage lang="/en" />}
-          />
+          <Route path="/uz/restaurants" element={<RestaurantsPage lang="/uz" />} />
+          <Route path="/en/restaurants" element={<RestaurantsPage lang="/en" />} />
 
           <Route path='*' element={<NotFoundPage />}  />
         </Routes>
