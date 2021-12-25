@@ -15,9 +15,6 @@ import GalleryItemPage from "./pages/GalleryItemPage/GalleryItemPage";
 import NotFoundPage from "./pages/NotFounPage/NotFoundPage";
 
 function App() {
-  const changeLanguage = () => {
-    document.querySelector("html").setAttribute("lang", "en");
-  };
   return (
     <Router>
       <div className="App">
@@ -45,7 +42,13 @@ function App() {
           <Route path="/delivery" element={<DeliveryPage />} />
           <Route path="/offer" element={<OfferPage />} />
           <Route path="/rules" element={<RulesPage />} />
-          <Route path="/actions" element={<ActionsPage />} />
+
+          {/* Actions Page */}
+          <Route path="/actions" element={<ActionsPage lang="" />} />
+          <Route path="/uz/actions" element={<ActionsPage lang="/uz" />} />
+          <Route path="/en/actions" element={<ActionsPage lang="/en" />} />
+
+          
           <Route path="/contacts" element={<ContactsPage />} />
 
           {/* Restaurants */}
