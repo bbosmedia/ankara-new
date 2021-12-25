@@ -55,6 +55,8 @@ function App() {
             path="/en/restaurants"
             element={<RestaurantsPage lang="/en" />}
           />
+
+          <Route  />
         </Routes>
 
         {/* Footer */}
