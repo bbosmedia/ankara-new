@@ -25,7 +25,7 @@ const GalleryItemPage = ({lang}) => {
  
   if(items === null) return null;
     return (
-        <div className="container-fluid ya-container-fluid">
+        <div className="container-fluid ya-container-fluid gallery-page">
    <div className="ya-page-block">
       <GalleryItemBreadcrumb lang={lang} titleUz={items.titleUz} titleRu={items.titleRu} titleEn={items.titleEn}/>
       

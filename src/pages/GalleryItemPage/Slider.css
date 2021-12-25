@@ -1,4 +1,4 @@
-.swiper-pagination-clickable .swiper-pagination-bullet {
+.gallery-page .swiper-pagination-clickable .swiper-pagination-bullet {
     height: 3px;
     border-radius: 0;
     width: 30px;
@@ -6,21 +6,21 @@
     opacity: 0.5;
 }
 
-.swiper-pagination-clickable  .swiper-pagination-bullet-active {
+.gallery-page .swiper-pagination-clickable  .swiper-pagination-bullet-active {
     opacity: 1;
     background: #fff;
 }
 
-.swiper-button-next, .swiper-button-prev{
+.gallery-page .swiper-button-next, .swiper-button-prev{
     color: #fff;
     transform: scale(0.5);
     font-weight: bold;
 }
 
-.swiper-button-prev{
+.gallery-page .swiper-button-prev{
     margin-left: 10px;
 }
 
-.swiper-button-next{
+.gallery-page .swiper-button-next{
     margin-right: 10px;
 }
