@@ -12,6 +12,7 @@ import ActionsPage from "./pages/ActionsPage/ActionsPage";
 import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
 import GalleryItemPage from "./pages/GalleryItemPage/GalleryItemPage";
+import NotFoundPage from "./pages/NotFounPage/NotFoundPage";
 
 function App() {
   const changeLanguage = () => {
@@ -56,7 +57,7 @@ function App() {
             element={<RestaurantsPage lang="/en" />}
           />
 
-          <Route  />
+          <Route path='*' element={<NotFoundPage />}  />
         </Routes>
 
         {/* Footer */}
