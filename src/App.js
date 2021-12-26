@@ -14,6 +14,7 @@ import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
 import GalleryItemPage from "./pages/GalleryItemPage/GalleryItemPage";
 import NotFoundPage from "./pages/NotFounPage/NotFoundPage";
 import SubActionPage from "./pages/SubActionPage/SubActionPage";
+import SubReatauranPage from "./pages/SubRestaurantPage/SubReatauranPage";
 
 function App() {
   return (
@@ -67,6 +68,11 @@ function App() {
           <Route path="/restaurants" element={<RestaurantsPage lang="/ru" />} />
           <Route path="/uz/restaurants" element={<RestaurantsPage lang="/uz" />} />
           <Route path="/en/restaurants" element={<RestaurantsPage lang="/en" />} />
+
+          {/* SubRestaurants */}
+          <Route path="/restaurants/:id" element={<SubReatauranPage lang="" />} />
+          <Route path="/uz/restaurants/:id" element={<SubReatauranPage lang="/uz" />} />
+          <Route path="/en/restaurants/:id" element={<SubReatauranPage lang="/en" />} />
 
           <Route path='*' element={<NotFoundPage />}  />
         </Routes>
