@@ -26,8 +26,6 @@ const SliderHomepage = () => {
         autoplay={{
           delay: 5000,
       }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
       >
         <SwiperSlide>
           <img style={{width: "100%", height: "auto"}} src="https://cdn.yaponamama.uz/sliders/slider_1638343427.png" alt="" />

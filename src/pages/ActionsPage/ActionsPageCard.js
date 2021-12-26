@@ -8,7 +8,6 @@ const ActionsPageCard = ({lang}) => {
     try {
       var items = await axios.get(`https://api.ankara.uz/promotions`);
       setItems(items.data);
-      console.log(items.data);
     } catch (e) {
       console.log(e);
     }

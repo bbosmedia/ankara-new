@@ -12,7 +12,6 @@ const GalleryItemPage = ({lang}) => {
     try {
       var items = await axios.get(`https://api.ankara.uz/gallery/${id}`);
       setItems(items.data);
-      console.log(items.data);
 
     } catch (e) {
       console.log(e);

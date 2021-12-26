@@ -9,7 +9,6 @@ const NotFoundPage = () => {
     if(breadcrumbs.length > 0){
       setLang(breadcrumbs[1].key)
     }
-    console.log(breadcrumbs[1].key);
   }, [])
   if(lang === '/uz'){
     return (

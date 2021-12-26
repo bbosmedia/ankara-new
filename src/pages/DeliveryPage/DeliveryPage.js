@@ -4,10 +4,7 @@ import useBreadcrumbs from 'use-react-router-breadcrumbs';
 
 const DeliveryPage = () => {
   const breadcrumbs = useBreadcrumbs()
-  breadcrumbs.map(link => {
-    console.log(link.key);
-  })
-  console.log(breadcrumbs.length);
+
     return (
       
         <div>

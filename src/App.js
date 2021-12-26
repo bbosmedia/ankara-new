@@ -13,6 +13,7 @@ import ContactsPage from "./pages/ContactsPage/ContactsPage";
 import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
 import GalleryItemPage from "./pages/GalleryItemPage/GalleryItemPage";
 import NotFoundPage from "./pages/NotFounPage/NotFoundPage";
+import SubActionPage from "./pages/SubActionPage/SubActionPage";
 
 function App() {
   return (
@@ -47,6 +48,11 @@ function App() {
           <Route path="/actions" element={<ActionsPage lang="" />} />
           <Route path="/uz/actions" element={<ActionsPage lang="/uz" />} />
           <Route path="/en/actions" element={<ActionsPage lang="/en" />} />
+
+          {/* Sub Action Page */}
+          <Route path="/actions/:id" element={<SubActionPage lang="" />} />
+          <Route path="/uz/actions/:id" element={<SubActionPage lang="/uz" />} />
+          <Route path="/en/actions/:id" element={<SubActionPage lang="/en" />} />
 
           
           <Route path="/contacts" element={<ContactsPage />} />

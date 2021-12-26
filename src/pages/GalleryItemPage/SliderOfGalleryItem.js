@@ -24,8 +24,6 @@ const SliderOfGalleryItem = ({photos}) => {
         autoplay={{
           delay: 5000,
       }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
       >
           {photos.map(item=><SwiperSlide key={item.origin}>
           <img style={{width: "100%", height: "auto"}} src={item.thumbnail} alt="" />
