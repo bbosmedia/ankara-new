@@ -40,7 +40,13 @@ function App() {
           {/* About Page */}
           <Route path="/about" element={<AboutPage />} />
 
-          <Route path="/delivery" element={<DeliveryPage />} />
+          {/* Delivery Page */}
+          <Route path="/delivery" element={<DeliveryPage lang='' />} />
+          <Route path="/uz/delivery" element={<DeliveryPage lang='/uz' />} />
+          <Route path="/en/delivery" element={<DeliveryPage lang='/en' />} />
+
+
+
           <Route path="/offer" element={<OfferPage />} />
           <Route path="/rules" element={<RulesPage />} />
 
