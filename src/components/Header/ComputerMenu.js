@@ -4,7 +4,7 @@ import ComputerMenuRu from "./ComputerMenu/ComputerMenuRu";
 import ComputerMenuUz from "./ComputerMenu/ComputerMenuUz";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 
-const ComputerMenu = ({langModel}) => {
+const ComputerMenu = ({langModel, changeComputerMenu}) => {
   const [lang, setLang] = useState("/ru");
   const breadcrumbs = useBreadcrumbs();
   useEffect(() => {
@@ -21,11 +21,11 @@ const ComputerMenu = ({langModel}) => {
     }
   }, [breadcrumbs]);
   if (lang === "/uz") {
-    return <ComputerMenuUz langModel={langModel} />;
+    return <ComputerMenuUz langModel={langModel} changeComputerMenu={changeComputerMenu} />;
   } else if (lang === "/en") {
-    return <ComputerMenuEn langModel={langModel}/>;
+    return <ComputerMenuEn langModel={langModel} changeComputerMenu={changeComputerMenu}/>;
   } else {
-    return <ComputerMenuRu langModel={langModel} />;
+    return <ComputerMenuRu langModel={langModel} changeComputerMenu={changeComputerMenu}/>;
   }
 };
 

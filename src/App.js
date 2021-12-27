@@ -16,17 +16,23 @@ import NotFoundPage from "./pages/NotFounPage/NotFoundPage";
 import SubActionPage from "./pages/SubActionPage/SubActionPage";
 import SubReatauranPage from "./pages/SubRestaurantPage/SubReatauranPage";
 import ChangeLanguageModal from "./components/Modals/ChangeLanguageModal";
+import ComputerMenuModal from "./components/Modals/ComputerMenuModal";
 
 function App() {
   const [sitelang, setSitelang] = useState(true);
+  const [computermenu, setComputermenu] = useState(false);
 
   const langModel = () =>{
     setSitelang(!sitelang);
   }
+
+  const changeComputerMenu = () =>{
+    setComputermenu(!computermenu);
+  }
   return (
     <Router>
       <div className="App">
-        <Header langModel={langModel} />
+        <Header langModel={langModel} changeComputerMenu={changeComputerMenu} />
         <Routes>
 
           {/* Main Page */}
@@ -86,6 +92,7 @@ function App() {
         {/* Footer */}
         <Footer />
         <ChangeLanguageModal sitelang={sitelang} langModel={langModel} />
+        <ComputerMenuModal computerMenu={computermenu} changeComputerMenu={changeComputerMenu} />
       </div>
     </Router>
   );
