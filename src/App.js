@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -15,12 +15,18 @@ import GalleryItemPage from "./pages/GalleryItemPage/GalleryItemPage";
 import NotFoundPage from "./pages/NotFounPage/NotFoundPage";
 import SubActionPage from "./pages/SubActionPage/SubActionPage";
 import SubReatauranPage from "./pages/SubRestaurantPage/SubReatauranPage";
+import ChangeLanguageModal from "./components/Modals/ChangeLanguageModal";
 
 function App() {
+  const [sitelang, setSitelang] = useState(true);
+
+  const langModel = () =>{
+    setSitelang(!sitelang);
+  }
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header langModel={langModel} />
         <Routes>
 
           {/* Main Page */}
@@ -61,7 +67,7 @@ function App() {
           <Route path="/uz/actions/:id" element={<SubActionPage lang="/uz" />} />
           <Route path="/en/actions/:id" element={<SubActionPage lang="/en" />} />
 
-          
+          {/* Contacts */}
           <Route path="/contacts" element={<ContactsPage />} />
 
           {/* Restaurants */}
@@ -79,6 +85,7 @@ function App() {
 
         {/* Footer */}
         <Footer />
+        <ChangeLanguageModal sitelang={sitelang} langModel={langModel} />
       </div>
     </Router>
   );

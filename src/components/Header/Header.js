@@ -4,12 +4,12 @@ import ComputerMenu from "./ComputerMenu";
 import "./Header.css";
 import MobileMenu from "./MobileMenu";
 
-const Header = () => {
+const Header = ({langModel}) => {
   return (
     <>
       <div id="header" className="sticky-top">
         <MobileMenu />
-        <ComputerMenu />
+        <ComputerMenu langModel={langModel} />
       </div>
     </>
   );

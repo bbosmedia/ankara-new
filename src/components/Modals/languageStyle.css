@@ -1,0 +1,9 @@
+.active-language-modal{
+    position: fixed;
+    z-index: 1040;
+}
+
+.notactive-language-modal{
+    display: none;
+    z-index: -900;
+}

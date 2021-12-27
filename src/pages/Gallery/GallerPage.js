@@ -18,7 +18,7 @@ const GallerPage = ({ lang }) => {
   }, [lang]);
   if (lang === "/en") {
     return (
-      <div className="container-fluid ya-container-fluid">
+      <div key={lang} className="container-fluid ya-container-fluid">
         <div className="ya-page-block">
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb ya-breadcrumb">

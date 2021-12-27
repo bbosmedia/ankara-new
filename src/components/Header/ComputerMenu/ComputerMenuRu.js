@@ -2,7 +2,7 @@ import React from "react";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import { Link } from "react-router-dom";
 
-const ComputerMenuRu = () => {
+const ComputerMenuRu = ({langModel}) => {
   const breadcrumbs = useBreadcrumbs();
   function navCalss(first) {
     if (breadcrumbs.length === 2) {
@@ -56,6 +56,7 @@ const ComputerMenuRu = () => {
           </div>
           <div className="navbar-nav ya-opt-navbar align-items-center mr-0">
             <a
+             onClick={langModel}
               aria-current="page"
               className="nav-item nav-link ya-lang nuxt-link-exact-active nuxt-link-active ya-ru"
               role="button"

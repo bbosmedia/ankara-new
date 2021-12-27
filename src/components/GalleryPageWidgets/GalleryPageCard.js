@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const GalleryPageCard = ({ name, id, thumbnail, lang}) => {
   return (
-    <div className="ya-gallery-card">
+    <div key={id} className="ya-gallery-card">
       <img
         alt={name}
         src={thumbnail}
