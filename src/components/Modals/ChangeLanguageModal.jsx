@@ -48,7 +48,7 @@ const ChangeLanguageModal = ({sitelang, langModel}) => {
       }
 
     }
-  }, [])
+  }, [breadcrumbs])
     return (
         <div onClick={() => setTimeout(langModel, 500)}  id="languageModal___BV_modal_outer_" className={sitelang ? 'active-language-modal' : 'notactive-language-modal'}>
   <div id="languageModal" role="dialog" aria-describedby="languageModal___BV_modal_body_" className="modal fade show ya-lang-modal" aria-modal="true" style={{display: "block"}}>
