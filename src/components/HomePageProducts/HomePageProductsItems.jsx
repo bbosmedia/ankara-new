@@ -30,14 +30,19 @@ const HomePageProductsItems = ({lang, id}) => {
                             <div key={item.id} className="col-sm-12 col-md-4 col-lg-3 px-0">
                         <div className="ya-product-item">
                             <div className="card hvr-grow w-100">
-                                <Link to={`/product/${item.id}`} className=""><img alt="(Турбо) Крабовый салат" className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link> 
+                                {lang === '/uz' && <Link to={`/uz/product/${item.id}`} ><img alt={item.nameUz} className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link>} 
+                                {lang === '/en' && <Link to={`/en/product/${item.id}`} ><img alt={item.nameEn} className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link>} 
+                                {lang === '' && <Link to={`/product/${item.id}`} ><img alt={item.nameRu} className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link>} 
                                 <div className="card-body">
-                                    {lang === '' && <h5 className="card-title"><Link to={`/product/${item.id}`} className="">{item.nameRu}</Link></h5>}
-                                    {lang === '/uz' && <h5 className="card-title"><Link to={`/product/${item.id}`} className="">{item.nameUz}</Link></h5>}
-                                    {lang === '/en' && <h5 className="card-title"><Link to={`/product/${item.id}`} className="">{item.nameEn}</Link></h5>}
+                                {lang === '/uz' && <h5 className="card-title"><Link to={`/uz/product/${item.id}`} >{item.nameUz}</Link></h5>}
+                                {lang === '/en' && <h5 className="card-title"><Link to={`/en/product/${item.id}`} >{item.nameEn}</Link></h5>}
+                                {lang === '' && <h5 className="card-title"><Link to={`/product/${item.id}`} >{item.nameRu}</Link></h5>}
                                 <div className="d-flex align-items-center justify-content-between">
                                     <p className="card-price">{numberWithSpaces(item.price)}</p>
-                                    <a href="#" className="btn btn-danger btn-want">Хочу</a>
+                                    {lang === '' && <a className="btn btn-danger btn-want">Хочу</a>}
+                                    {lang === '/uz' && <a className="btn btn-danger btn-want">Hohlayman</a>}
+                                    {lang === '/en' && <a className="btn btn-danger btn-want">Want</a>}
+                                    <div class="ya-product-controls"><a href="#" class="ya-product-minus">-</a> <span class="ya-product-quantity">1</span> <a href="#" class="ya-product-plus">+</a></div>
                                 </div>
                                 </div>
                             </div>
