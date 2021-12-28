@@ -10,7 +10,7 @@ const HomePage = ({lang}) => {
         <div>
           <SliderHomepage />
           <HomePageMiniMenu lang={lang} />
-          <HomePageProducts />
+          <HomePageProducts lang={lang} />
         </div>
     )
 }

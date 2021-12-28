@@ -19,7 +19,7 @@ import ChangeLanguageModal from "./components/Modals/ChangeLanguageModal";
 import ComputerMenuModal from "./components/Modals/ComputerMenuModal";
 
 function App() {
-  const [sitelang, setSitelang] = useState(true);
+  const [sitelang, setSitelang] = useState(false);
   const [computermenu, setComputermenu] = useState(false);
 
   const langModel = () =>{
