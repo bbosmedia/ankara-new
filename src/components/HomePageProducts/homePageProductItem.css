@@ -1,0 +1,6 @@
+.ya-product-controls .ya-product-minus, .ya-product-controls .ya-product-plus{
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none;
+}

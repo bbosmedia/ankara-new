@@ -10,6 +10,10 @@ const ProdcutModal = ({lang}) => {
 }
   let { id } = useParams();
   const [items, setItems] = useState(null);
+  function closeMenu(){
+    document.querySelector('body').classList.remove('modal-open'); 
+    navigate(-1);
+  }
   const fetchGalItems = async () => {
     try {
       var items = await axios.get(`https://api.ankara.uz/shop/products/${id}`);
@@ -20,6 +24,7 @@ const ProdcutModal = ({lang}) => {
   };
   useEffect(() => {
     fetchGalItems();
+    document.querySelector('body').classList.add('modal-open')
   }, [lang]);
 
   if (items === null) return null;
@@ -41,7 +46,7 @@ const ProdcutModal = ({lang}) => {
                   {lang === '' && <h3 className="mr-3">{items.nameRu}</h3>}
                   {lang === '/uz' && <h3 className="mr-3">{items.nameUz}</h3>}
                   {lang === '/en' && <h3 className="mr-3">{items.nameEn}</h3>}
-                  <button type="button" onClick={() => navigate(-1)} className="btn ya-close-btn btn-secondary btn-block"></button>
+                  <button type="button" onClick={() => closeMenu()} className="btn ya-close-btn btn-secondary btn-block"></button>
                 </div>
                 {lang === '' && <div className="ya-product-modal-detail"> <div dangerouslySetInnerHTML={{ __html: items.descriptionRu}} /></div>}
                 {lang === '/uz' && <div className="ya-product-modal-detail"> <div dangerouslySetInnerHTML={{ __html: items.descriptionUz }} /></div>}
