@@ -27,7 +27,7 @@ const HomePageProductListByCollection = ({lang, id}) => {
         <div key={id} className="row ml-0 mr-0">
                     {items.map(item =>{
                         return(
-                          <HomePageProductItem lang={lang} item={item} />
+                          <HomePageProductItem key={item.id} lang={lang} item={item} />
                         )
                     })}
         </div>

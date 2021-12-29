@@ -67,7 +67,7 @@ const ProdcutModal = ({lang}) => {
                   <div className="ya-product-modal-price"> {numberWithSpaces(items.price)} so'm </div>
                   <button className="btn btn-danger btn-want">Want</button>
                   </>}
-                  <div className="ya-product-modal-controls"><a  class="ya-product-modal-minus">-</a> <span class="ya-product-modal-quantity">1</span> <a className="ya-product-modal-plus">+</a></div>
+                  <div className="ya-product-modal-controls"><a  className="ya-product-modal-minus">-</a> <span className="ya-product-modal-quantity">1</span> <a className="ya-product-modal-plus">+</a></div>
                 </div>
               </div>
             </div>

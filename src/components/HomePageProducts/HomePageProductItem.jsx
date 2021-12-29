@@ -37,9 +37,9 @@ const HomePageProductItem = ({lang, item}) => {
                                     {lang === '/uz' && <a onClick={() =>dispatch(addToCart(item))} className="btn btn-danger btn-want">Hohlayman</a>}
                                     {lang === '/en' && <a onClick={() =>dispatch(addToCart(item))} className="btn btn-danger btn-want">Want</a>}
                                     </>}
-                                    {qunatity > 0 && <div className="ya-product-controls"><button onClick={()=>dispatch(decreaseCart(item))} class="ya-product-minus">-</button> <span class="ya-product-quantity">
+                                    {qunatity > 0 && <div className="ya-product-controls"><button onClick={()=>dispatch(decreaseCart(item))} className="ya-product-minus">-</button> <span className="ya-product-quantity">
                                       {qunatity}
-                                      </span> <button  onClick={() =>dispatch(addToCart(item))} class="ya-product-plus">+</button></div>}
+                                      </span> <button  onClick={() =>dispatch(addToCart(item))} className="ya-product-plus">+</button></div>}
                                 </div>
                                 </div>
                             </div>

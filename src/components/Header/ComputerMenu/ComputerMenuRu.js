@@ -1,6 +1,7 @@
 import React from "react";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import { Link } from "react-router-dom";
+import ComputerMenuIcon from "./ComputerMenuIcon";
 
 const ComputerMenuRu = ({langModel, changeComputerMenu}) => {
   const breadcrumbs = useBreadcrumbs();
@@ -94,18 +95,7 @@ const ComputerMenuRu = ({langModel, changeComputerMenu}) => {
                 className="d-inline-block align-middle lazyLoad isLoaded"
               />
             </a>
-            <Link
-              to="#"
-              className="nav-item nav-link ya-cart-icon border-left-0 pt-0 pb-0"
-            >
-              <img
-                alt="Ankara Kebab"
-                loading="lazy"
-                height="25"
-                src="/images/ic_cart.01c3be9.svg"
-                className="d-inline-block align-middle lazyLoad isLoaded"
-              />
-            </Link>
+            <ComputerMenuIcon />
             <a
             onClick={changeComputerMenu}
               aria-current="page"
