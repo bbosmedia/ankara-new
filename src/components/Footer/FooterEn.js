@@ -26,27 +26,27 @@ const FooterEn = () => {
             <div className="d-flex align-items-start justify-content-between ya-footer-list">
               <ul className="ya-footer-menu list-unstyled">
                 <li className="fm-item">
-                  <Link to="/en/about" className="">
+                  <Link to="/en/about" >
                     About Us
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/menu" className="">
+                  <Link to="/en/menu" >
                     Menu
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/actions" className="">
+                  <Link to="/en/actions" >
                     Sales
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/restaurants" className="">
+                  <Link to="/en/restaurants" >
                     Restaurants
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/en/delivery" className="">
+                  <Link to="/en/delivery" >
                     Delivery
                   </Link>
                 </li>

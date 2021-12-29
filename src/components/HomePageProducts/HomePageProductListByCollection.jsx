@@ -41,7 +41,7 @@ const HomePageProductListByCollection = ({lang, id}) => {
                                     {lang === '' && <a className="btn btn-danger btn-want">Хочу</a>}
                                     {lang === '/uz' && <a className="btn btn-danger btn-want">Hohlayman</a>}
                                     {lang === '/en' && <a className="btn btn-danger btn-want">Want</a>}
-                                    <div class="ya-product-controls"><a href="#" class="ya-product-minus">-</a> <span class="ya-product-quantity">1</span> <a href="#" class="ya-product-plus">+</a></div>
+                                    <div className="ya-product-controls"><a  class="ya-product-minus">-</a> <span class="ya-product-quantity">1</span> <a  class="ya-product-plus">+</a></div>
                                 </div>
                                 </div>
                             </div>

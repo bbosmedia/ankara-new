@@ -61,10 +61,10 @@ const ChangeLanguageModal = ({sitelang, langModel}) => {
               <Link to={uzlink} onClick={() => setTimeout(langModel, 300)} aria-current="page" className="nuxt-link-exact-active nuxt-link-active">O'zbekcha </Link>
             </li>
             <li className="ya-ru">
-              <Link to={rulink} onClick={() => setTimeout(langModel, 300)} className="">Русский </Link>
+              <Link to={rulink} onClick={() => setTimeout(langModel, 300)} >Русский </Link>
             </li>
             <li className="ya-en">
-              <Link to={enlink} onClick={() => setTimeout(langModel, 300)} className="">English </Link>
+              <Link to={enlink} onClick={() => setTimeout(langModel, 300)} >English </Link>
             </li>
           </ul>
         </div>

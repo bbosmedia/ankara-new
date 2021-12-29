@@ -1,5 +1,5 @@
 .active-language-modal{
-    position: fixed;
+    position: absolute;
     z-index: 1040;
 }
 

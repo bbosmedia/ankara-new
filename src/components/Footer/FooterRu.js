@@ -13,20 +13,20 @@ const FooterRu = () => {
                     <div className="d-flex align-items-start justify-content-between ya-footer-list">
                         <ul className="ya-footer-menu list-unstyled">
                             <li className="fm-item">
-                                <Link to="/about" className="">О нас</Link>
+                                <Link to="/about" >О нас</Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/menu" className="">Меню</Link>
+                                <Link to="/menu" >Меню</Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/actions" className="">Акции
+                                <Link to="/actions" >Акции
                                 </Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/restaurants" className="">Рестораны</Link>
+                                <Link to="/restaurants" >Рестораны</Link>
                             </li>
                             <li className="fm-item">
-                                <Link to="/delivery" className="">Доставка</Link>
+                                <Link to="/delivery" >Доставка</Link>
                             </li>
                         </ul>
                         <ul className="ya-footer-menu list-unstyled">

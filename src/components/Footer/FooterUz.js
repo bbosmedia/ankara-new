@@ -26,27 +26,27 @@ const FooterUz = () => {
             <div className="d-flex align-items-start justify-content-between ya-footer-list">
               <ul className="ya-footer-menu list-unstyled">
                 <li className="fm-item">
-                  <Link to="/uz/about" className="">
+                  <Link to="/uz/about" >
                     Biz Haqimizda
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/uz/menu" className="">
+                  <Link to="/uz/menu" >
                     Menu
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/uz/actions" className="">
+                  <Link to="/uz/actions" >
                     Aksiyalar
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/uz/restaurants" className="">
+                  <Link to="/uz/restaurants" >
                     Restoranlar
                   </Link>
                 </li>
                 <li className="fm-item">
-                  <Link to="/uz/delivery" className="">
+                  <Link to="/uz/delivery" >
                     Yetkazib Berish
                   </Link>
                 </li>

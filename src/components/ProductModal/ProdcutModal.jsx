@@ -24,7 +24,7 @@ const ProdcutModal = ({lang}) => {
 
   if (items === null) return null;
     return (
-        <div id="productModal___BV_modal_outer_" style={{position: 'absolute', zIndex: 1040}}>
+        <div id="productModal___BV_modal_outer_" style={{position: 'absolute', zIndex: 1040,}}>
   <div id="productModal" role="dialog" aria-describedby="productModal___BV_modal_body_" className="modal fade show ya-product-modal" aria-modal="true" style={{display: 'block'}}>
     <div className="modal-dialog modal-xl">
       <div id="productModal___BV_modal_content_"  className="modal-content">
@@ -62,7 +62,7 @@ const ProdcutModal = ({lang}) => {
                   <div className="ya-product-modal-price"> {numberWithSpaces(items.price)} so'm </div>
                   <button className="btn btn-danger btn-want">Want</button>
                   </>}
-                  <div class="ya-product-modal-controls"><a  class="ya-product-modal-minus">-</a> <span class="ya-product-modal-quantity">1</span> <a class="ya-product-modal-plus">+</a></div>
+                  <div className="ya-product-modal-controls"><a  class="ya-product-modal-minus">-</a> <span class="ya-product-modal-quantity">1</span> <a className="ya-product-modal-plus">+</a></div>
                 </div>
               </div>
             </div>

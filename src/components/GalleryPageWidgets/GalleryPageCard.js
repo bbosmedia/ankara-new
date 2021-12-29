@@ -10,7 +10,7 @@ const GalleryPageCard = ({ name, id, thumbnail, lang}) => {
         className="lazyLoad isLoaded"
       />
       <div className="ya-gallery-card__content">
-        <Link to={`${lang}/gallery/${id}`} className="" title={name}>
+        <Link to={`${lang}/gallery/${id}`}  title={name}>
           {name}
         </Link>
       </div>

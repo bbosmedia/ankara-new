@@ -74,9 +74,9 @@ const SubReatauranPage = ({lang}) => {
             <span>
               <img height="40" src="/images/iconsrestaurant/ic_restaurant_menu.f6850cc.svg" className="lazyLoad isLoaded" />
             </span>
-            {lang === '' && <Link to="/menu" className="">Меню</Link>}
-            {lang === '/en' && <Link to="/en/menu" className="">Menu</Link>}
-            {lang === '/uz' && <Link to="/uz/menu" className="">Menu</Link>}
+            {lang === '' && <Link to="/menu" >Меню</Link>}
+            {lang === '/en' && <Link to="/en/menu" >Menu</Link>}
+            {lang === '/uz' && <Link to="/uz/menu" >Menu</Link>}
           </li>
           <li>
             <span>

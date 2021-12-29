@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { addToCart, selectCart} from "../../redux/CartRedux";
+
 
 const HomePageProductsItems = ({lang, id}) => {
-
+  const cart = useSelector(selectCart);
+  const dispatch = useDispatch()
     function numberWithSpaces(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
     }
@@ -42,7 +46,9 @@ const HomePageProductsItems = ({lang, id}) => {
                                     {lang === '' && <a className="btn btn-danger btn-want">Хочу</a>}
                                     {lang === '/uz' && <a className="btn btn-danger btn-want">Hohlayman</a>}
                                     {lang === '/en' && <a className="btn btn-danger btn-want">Want</a>}
-                                    <div class="ya-product-controls"><a href="#" class="ya-product-minus">-</a> <span class="ya-product-quantity">1</span> <a href="#" class="ya-product-plus">+</a></div>
+                                    <div className="ya-product-controls"><a class="ya-product-minus">-</a> <span class="ya-product-quantity">
+                                      1
+                                      </span> <a  onClick={() =>dispatch(addToCart(item))} class="ya-product-plus">+</a></div>
                                 </div>
                                 </div>
                             </div>
