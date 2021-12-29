@@ -40,7 +40,7 @@ const ActionsPageCard = ({lang}) => {
     return(
       <div key={id} className="col-sm-6 col-md-4">
       <div className="card">
-        <Link to="/actions/79" className="">
+        <Link to={`${lang}/actions/${id}`} className="">
           <img alt={title} className="card-img-top lazyLoad isLoaded" src={photo} />
         </Link>
         <div className="card-body">

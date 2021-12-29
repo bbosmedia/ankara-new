@@ -17,6 +17,7 @@ import SubActionPage from "./pages/SubActionPage/SubActionPage";
 import SubReatauranPage from "./pages/SubRestaurantPage/SubReatauranPage";
 import ChangeLanguageModal from "./components/Modals/ChangeLanguageModal";
 import ComputerMenuModal from "./components/Modals/ComputerMenuModal";
+import ProductMainPage from "./pages/ProductMainPage/ProductMainPage";
 
 function App() {
   const [sitelang, setSitelang] = useState(false);
@@ -85,6 +86,10 @@ function App() {
           <Route path="/restaurants/:id" element={<SubReatauranPage lang="" />} />
           <Route path="/uz/restaurants/:id" element={<SubReatauranPage lang="/uz" />} />
           <Route path="/en/restaurants/:id" element={<SubReatauranPage lang="/en" />} />
+
+          <Route path='product/:id' element={<ProductMainPage lang='' />} />
+          <Route path='/uz/product/:id' element={<ProductMainPage lang='/uz' />} />
+          <Route path='/en/product/:id' element={<ProductMainPage lang='/en' />} />
 
           <Route path='*' element={<NotFoundPage />}  />
         </Routes>
