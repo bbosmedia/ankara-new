@@ -4,9 +4,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const cartSlice = createSlice({
     name: 'cart',
     initialState: {
-      cartItems: [],
-      cartTotalQuantity: 0,
-      cartTotalAmount: 0,
+      cartItems: localStorage.getItem('cartItemsOfAnkaraKebap') ? JSON.parse(localStorage.getItem('cartItemsOfAnkaraKebap')) : [],
+      cartTotalQuantity: localStorage.getItem('cartItemsTotalQuantity') ? JSON.parse(localStorage.getItem('cartItemsTotalQuantity')) : 0,
+      cartTotalAmount: localStorage.getItem('cartItemsTotalAmount') ? JSON.parse(localStorage.getItem('cartItemsTotalAmount')) : 0,
     },
     reducers: {
       addToCart(state, action){
@@ -19,6 +19,9 @@ const cartSlice = createSlice({
           }
           state.cartTotalQuantity = state.cartItems.length;
           state.cartTotalAmount = state.cartItems.reduce((partial_sum, item) => partial_sum + item.cartQuantity * item.price, 0)
+          localStorage.setItem('cartItemsOfAnkaraKebap', JSON.stringify(state.cartItems))
+          localStorage.setItem('cartItemsTotalAmount', JSON.stringify(state.cartTotalAmount))
+          localStorage.setItem('cartItemsTotalQuantity', JSON.stringify(state.cartTotalQuantity))
       },
       decreaseCart(state, action){
         const itemIndex = state.cartItems.findIndex(item => item.id === action.payload.id)
@@ -31,6 +34,9 @@ const cartSlice = createSlice({
       }
       state.cartTotalQuantity = state.cartItems.length;
           state.cartTotalAmount = state.cartItems.reduce((partial_sum, item) => partial_sum + item.cartQuantity * item.price, 0)
+          localStorage.setItem('cartItemsOfAnkaraKebap', JSON.stringify(state.cartItems))
+          localStorage.setItem('cartItemsTotalAmount', JSON.stringify(state.cartTotalAmount))
+          localStorage.setItem('cartItemsTotalQuantity', JSON.stringify(state.cartTotalQuantity))
       }
     }
   })
