@@ -18,10 +18,12 @@ import SubReatauranPage from "./pages/SubRestaurantPage/SubReatauranPage";
 import ChangeLanguageModal from "./components/Modals/ChangeLanguageModal";
 import ComputerMenuModal from "./components/Modals/ComputerMenuModal";
 import ProductMainPage from "./pages/ProductMainPage/ProductMainPage";
+import CartMenu from "./components/CartMenu/CartMenu";
 
 function App() {
   const [sitelang, setSitelang] = useState(false);
   const [computermenu, setComputermenu] = useState(false);
+  const [cartmenu, setCartMenu] = useState(false);
 
   const langModel = () =>{
     setSitelang(!sitelang);
@@ -30,10 +32,14 @@ function App() {
   const changeComputerMenu = () =>{
     setComputermenu(!computermenu);
   }
+
+  const openCartMenu = () =>{
+    setCartMenu(!cartmenu);
+  }
   return (
     <Router>
       <div className="App">
-        <Header langModel={langModel} changeComputerMenu={changeComputerMenu} />
+        <Header langModel={langModel} changeComputerMenu={changeComputerMenu} openCartMenu={openCartMenu} />
         <Routes>
 
           {/* Main Page */}
@@ -98,6 +104,7 @@ function App() {
         <Footer />
         <ChangeLanguageModal sitelang={sitelang} langModel={langModel} />
         <ComputerMenuModal computerMenu={computermenu} changeComputerMenu={changeComputerMenu} />
+        {cartmenu && <CartMenu openCartMenu={openCartMenu} />}
       </div>
     </Router>
   );

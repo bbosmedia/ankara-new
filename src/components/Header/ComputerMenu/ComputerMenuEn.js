@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import ComputerMenuIcon from "./ComputerMenuIcon";
 
-const ComputerMenuEn = ({langModel, changeComputerMenu}) => {
+const ComputerMenuEn = ({langModel, changeComputerMenu, openCartMenu}) => {
   const breadcrumbs = useBreadcrumbs();
   function navCalss(first) {
     if (breadcrumbs.length === 3) {
@@ -95,7 +95,7 @@ const ComputerMenuEn = ({langModel, changeComputerMenu}) => {
                 className="d-inline-block align-middle lazyLoad isLoaded"
               />
             </a>
-            <ComputerMenuIcon />
+            <ComputerMenuIcon openCartMenu={openCartMenu} />
             <a
             onClick={changeComputerMenu}
               aria-current="page"
