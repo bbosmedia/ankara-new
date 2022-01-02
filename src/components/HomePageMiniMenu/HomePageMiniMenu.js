@@ -16,6 +16,7 @@ const HomePageMiniMenu = ({lang}) => {
     useEffect(() => {
         fetchMenuItems()
     }, [lang])
+    if(minimenu === null) return null;
     return (
         <div className="ya-mini-menu sticky-top" style={{top: "63px"}}>
         <div className="container-fluid">

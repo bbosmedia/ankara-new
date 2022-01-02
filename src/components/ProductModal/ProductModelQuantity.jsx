@@ -39,8 +39,8 @@ const ProductModelQuantity = ({ items, lang }) => {
         <div className="ya-product-controls">
           <button onClick={() => dispatch(decreaseCart(items))} className="ya-product-minus">
             -
-          </button>{" "}
-          <span className="ya-product-quantity">{qunatity}</span>{" "}
+          </button>
+          <span className="ya-product-quantity mx-2">{qunatity}</span>
           <button onClick={() => dispatch(addToCart(items))} className="ya-product-plus">
             +
           </button>

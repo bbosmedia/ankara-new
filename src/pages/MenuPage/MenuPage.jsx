@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import MenuPageNavigation from "./MenuPageNavigation";
 
 const MenuPage = ({ lang }) => {
   return (
@@ -15,13 +16,11 @@ const MenuPage = ({ lang }) => {
               )}
               {lang === "/en" && (
                 <Link to="/en" className="nuxt-link-active">
-                  
                   Home
                 </Link>
               )}
               {lang === "/uz" && (
-                <Link to="/en" className="nuxt-link-active">
-                  
+                <Link to="/uz" className="nuxt-link-active">
                   Bosh Sahifa
                 </Link>
               )}
@@ -50,20 +49,7 @@ const MenuPage = ({ lang }) => {
         {lang === "/uz" && <h1 className="ya-group-title">Menu</h1>}
         {lang === "/en" && <h1 className="ya-group-title">Menu</h1>}
         <div className="ya-page-text">
-          <nav className="navbar navbar-expand navbar-light ya-menu-nav">
-            <div className="collapse navbar-collapse">
-              <div className="navbar-nav">
-                <a
-                  href="/en/menu/c47599bc-4a96-495a-b610-f7b89dddd2e7"
-                  className="nav-item nav-link nuxt-link-exact-active active"
-                  aria-current="page"
-                >
-                  New items
-                </a>
-               
-              </div>
-            </div>
-          </nav>
+          <MenuPageNavigation lang={lang} />
           <section className="pt-3">
             <div className="ya-menu-group py-4">
               <h1 className="ya-menu-title text-center mb-5">New items</h1>

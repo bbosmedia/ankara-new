@@ -11,3 +11,10 @@
 .ya-product-modal-params .ya-product-plus, .ya-product-modal-params .ya-product-minus, .ya-product-modal-params .ya-product-quantity{
     font-size: 20px;
 }
+
+.ya-product-quantity{
+-webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; 
+}
