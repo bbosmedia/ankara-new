@@ -3,3 +3,11 @@
     height: auto;
     object-fit: contain;
 }
+
+.ya-product-modal-params .btn{
+    font-size: 18px;
+}
+
+.ya-product-modal-params .ya-product-plus, .ya-product-modal-params .ya-product-minus, .ya-product-modal-params .ya-product-quantity{
+    font-size: 20px;
+}

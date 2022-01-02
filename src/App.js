@@ -19,6 +19,7 @@ import ChangeLanguageModal from "./components/Modals/ChangeLanguageModal";
 import ComputerMenuModal from "./components/Modals/ComputerMenuModal";
 import ProductMainPage from "./pages/ProductMainPage/ProductMainPage";
 import CartMenu from "./components/CartMenu/CartMenu";
+import MenuPage from "./pages/MenuPage/MenuPage";
 
 function App() {
   const [sitelang, setSitelang] = useState(false);
@@ -46,6 +47,11 @@ function App() {
           <Route path="/" element={<HomePage lang='' />} />
           <Route path="/uz" element={<HomePage lang="/uz" />} />
           <Route path="/en" element={<HomePage lang="/en" />} />
+
+          {/* Menu Page */}
+          <Route  path="/menu" element={<MenuPage lang='/ru' />} />
+          <Route  path="/uz/menu" element={<MenuPage lang='/uz' />} />
+          <Route  path="/en/menu" element={<MenuPage lang='/en' />} />
 
           {/* Gallery Page */}
           <Route path="/gallery" element={<GallerPage />} />

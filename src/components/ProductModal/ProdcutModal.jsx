@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
 import './productModal.css'
+import ProductModelQuantity from "./ProductModelQuantity";
 
 const ProdcutModal = ({lang}) => {
-  const navigate = useNavigate();
-  function numberWithSpaces(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-}
   let { id } = useParams();
   const [items, setItems] = useState(null);
+  const navigate = useNavigate();
   function closeMenu(){
     document.querySelector('body').classList.remove('modal-open'); 
     navigate(-1);
@@ -22,8 +20,8 @@ const ProdcutModal = ({lang}) => {
       console.log(e);
     }
   };
-  useEffect(() => {
-    fetchGalItems();
+  useEffect( async() => {
+    await fetchGalItems();
     document.querySelector('body').classList.add('modal-open')
   }, [lang]);
 
@@ -51,25 +49,8 @@ const ProdcutModal = ({lang}) => {
                 {lang === '' && <div className="ya-product-modal-detail"> <div dangerouslySetInnerHTML={{ __html: items.descriptionRu}} /></div>}
                 {lang === '/uz' && <div className="ya-product-modal-detail"> <div dangerouslySetInnerHTML={{ __html: items.descriptionUz }} /></div>}
                 {lang === '/en' && <div className="ya-product-modal-detail"><div dangerouslySetInnerHTML={{ __html: items.descriptionEn }} /></div>}
-                <div className="d-flex justify-content-between ya-product-modal-params">
-                  {lang === '' && 
-                  <>
-                  <div className="ya-product-modal-price"> {numberWithSpaces(items.price)} сум </div>
-                  <button className="btn btn-danger btn-want"> Хочу </button>
-                  </>}
-                  {lang === '/uz' && 
-                  <>
-                  <div className="ya-product-modal-price"> {numberWithSpaces(items.price)} so'm </div>
-                  <button className="btn btn-danger btn-want">Hohlayman </button>
-                  </>}
-                  {lang === '/en' && 
-                  <>
-                  <div className="ya-product-modal-price"> {numberWithSpaces(items.price)} so'm </div>
-                  <button className="btn btn-danger btn-want">Want</button>
-                  </>}
-                  <div className="ya-product-modal-controls"><a  className="ya-product-modal-minus">-</a> <span className="ya-product-modal-quantity">1</span> <a className="ya-product-modal-plus">+</a></div>
+                <ProductModelQuantity lang={lang} items={items} />
                 </div>
-              </div>
             </div>
           </div>
         </div>

@@ -41,18 +41,18 @@ const YesProducts = ({lang, items}) => {
            </div>
          </div>
          <footer id="cartModal___BV_modal_footer_" className="modal-footer">
-             {lang === '/ru' && <button type="button" className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
+             {lang === '/ru' && <Link to='/checkout' className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
              <span>Оформить заказ</span>
              <span>{numberWithSpaces(totalAmount)} сум</span>
-           </button>}
-           {lang === '/en' && <button type="button" className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
+           </Link>}
+           {lang === '/en' && <Link to='/en/checkout'  className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
              <span>Checkout</span>
              <span>{numberWithSpaces(totalAmount)} сум</span>
-           </button>}
-           {lang === '/uz' && <button type="button" className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
+           </Link>}
+           {lang === '/uz' && <Link to='/uz/checkout'  className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
              <span>Buyurtmani Rasmiylashtirish</span>
              <span>{numberWithSpaces(totalAmount)} so'm</span>
-           </button>}
+           </Link>}
          </footer>
             </>
         )
