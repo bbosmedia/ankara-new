@@ -25,15 +25,15 @@ const MenuPageNavigation = ({lang}) => {
               <div className="navbar-nav">
                 {minimenu.map(item=>{
                     if(lang === '/uz'){
-                        return (<Link to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
+                        return (<Link key={item.id} to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
                         {item.nameUz}
                     </Link>)
                     }else if(lang === '/en'){
-                        return (<Link to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
+                        return (<Link key={item.id} to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
                         {item.nameEn}
                     </Link>)
                     }else{
-                        return (<Link to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
+                        return (<Link key={item.id} to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
                         {item.nameRu}
                     </Link>)
                     }

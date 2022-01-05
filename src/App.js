@@ -20,6 +20,7 @@ import ComputerMenuModal from "./components/Modals/ComputerMenuModal";
 import ProductMainPage from "./pages/ProductMainPage/ProductMainPage";
 import CartMenu from "./components/CartMenu/CartMenu";
 import MenuPage from "./pages/MenuPage/MenuPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
 
 function App() {
   const [sitelang, setSitelang] = useState(false);
@@ -52,6 +53,10 @@ function App() {
           <Route  path="/menu" element={<MenuPage lang='/ru' />} />
           <Route  path="/uz/menu" element={<MenuPage lang='/uz' />} />
           <Route  path="/en/menu" element={<MenuPage lang='/en' />} />
+
+          <Route  path="/menu/:id" element={<MenuPage lang='/ru' />} />
+          <Route  path="/uz/menu/:id" element={<MenuPage lang='/uz' />} />
+          <Route  path="/en/menu/:id" element={<MenuPage lang='/en' />} />
 
           {/* Gallery Page */}
           <Route path="/gallery" element={<GallerPage />} />
@@ -99,9 +104,14 @@ function App() {
           <Route path="/uz/restaurants/:id" element={<SubReatauranPage lang="/uz" />} />
           <Route path="/en/restaurants/:id" element={<SubReatauranPage lang="/en" />} />
 
-          <Route path='product/:id' element={<ProductMainPage lang='' />} />
+          <Route path='/product/:id' element={<ProductMainPage lang='' />} />
           <Route path='/uz/product/:id' element={<ProductMainPage lang='/uz' />} />
           <Route path='/en/product/:id' element={<ProductMainPage lang='/en' />} />
+
+          <Route path="/profile" element={<ProfilePage lang="/ru" />} />
+          <Route path="/uz/profile" element={<ProfilePage lang="/uz" />} />
+          <Route path="/en/profile" element={<ProfilePage lang="/en" />} />
+
 
           <Route path='*' element={<NotFoundPage />}  />
         </Routes>
