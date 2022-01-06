@@ -4,7 +4,7 @@ import ComputerMenuRu from "./ComputerMenu/ComputerMenuRu";
 import ComputerMenuUz from "./ComputerMenu/ComputerMenuUz";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 
-const ComputerMenu = ({langModel, changeComputerMenu, openCartMenu}) => {
+const ComputerMenu = ({langModel, changeComputerMenu, openCartMenu, changeLogin}) => {
   const [lang, setLang] = useState("/ru");
   const breadcrumbs = useBreadcrumbs();
   const removeClass = () =>{
@@ -30,11 +30,11 @@ const ComputerMenu = ({langModel, changeComputerMenu, openCartMenu}) => {
     }
   }, [breadcrumbs]);
   if (lang === "/uz") {
-    return <ComputerMenuUz langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} />;
+    return <ComputerMenuUz langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} />;
   } else if (lang === "/en") {
-    return <ComputerMenuEn langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu}/>;
+    return <ComputerMenuEn langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} />;
   } else {
-    return <ComputerMenuRu langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu}/>;
+    return <ComputerMenuRu langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} />;
   }
 };
 

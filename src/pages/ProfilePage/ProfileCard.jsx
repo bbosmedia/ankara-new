@@ -1,4 +1,5 @@
 import React from "react";
+import './profileCard.css'
 
 const ProfileCard = ({imgLink, name}) => {
   return (

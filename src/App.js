@@ -21,11 +21,13 @@ import ProductMainPage from "./pages/ProductMainPage/ProductMainPage";
 import CartMenu from "./components/CartMenu/CartMenu";
 import MenuPage from "./pages/MenuPage/MenuPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import RegisterAndLogin from "./components/RegisterAndLoginModel/RegisterAndLogin";
 
 function App() {
   const [sitelang, setSitelang] = useState(false);
   const [computermenu, setComputermenu] = useState(false);
   const [cartmenu, setCartMenu] = useState(false);
+  const [logimodel, setLoginmoedel] = useState(false)
 
   const langModel = () =>{
     setSitelang(!sitelang);
@@ -38,10 +40,14 @@ function App() {
   const openCartMenu = () =>{
     setCartMenu(!cartmenu);
   }
+
+  const changeLogin = () =>{
+    setLoginmoedel(!logimodel);
+  }
   return (
     <Router>
       <div className="App">
-        <Header langModel={langModel} changeComputerMenu={changeComputerMenu} openCartMenu={openCartMenu} />
+        <Header langModel={langModel} changeComputerMenu={changeComputerMenu} openCartMenu={openCartMenu} changeLogin={changeLogin} />
         <Routes>
 
           {/* Main Page */}
@@ -121,6 +127,7 @@ function App() {
         <ChangeLanguageModal sitelang={sitelang} langModel={langModel} />
         <ComputerMenuModal computerMenu={computermenu} changeComputerMenu={changeComputerMenu} />
         {cartmenu && <CartMenu openCartMenu={openCartMenu} />}
+        {logimodel && <RegisterAndLogin changeLogin={changeLogin} />}
       </div>
     </Router>
   );

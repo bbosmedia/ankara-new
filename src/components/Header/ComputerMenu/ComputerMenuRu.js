@@ -3,7 +3,7 @@ import useBreadcrumbs from "use-react-router-breadcrumbs";
 import { Link } from "react-router-dom";
 import ComputerMenuIcon from "./ComputerMenuIcon";
 
-const ComputerMenuRu = ({langModel, changeComputerMenu, openCartMenu}) => {
+const ComputerMenuRu = ({langModel, changeComputerMenu, openCartMenu, changeLogin}) => {
   const breadcrumbs = useBreadcrumbs();
   function navCalss(first) {
     if (breadcrumbs.length === 2) {
@@ -83,6 +83,7 @@ const ComputerMenuRu = ({langModel, changeComputerMenu, openCartMenu}) => {
               />
             </Link>
             <a
+            onClick={() => changeLogin()}
               aria-current="page"
               className="nav-item nav-link border-left-0 pt-0 pb-0 nuxt-link-exact-active nuxt-link-active"
               role="button"
