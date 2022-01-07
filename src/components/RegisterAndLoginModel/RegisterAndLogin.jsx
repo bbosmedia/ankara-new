@@ -11,6 +11,11 @@ const RegisterAndLogin = ({changeLogin}) => {
   const breadcrumbs = useBreadcrumbs();
   const register = useSelector(selectRegister);
   useEffect(() => {
+    document.querySelector('#authModal___BV_modal_outer_').addEventListener('click', (event) => {
+      if(!document.querySelector('#authModal___BV_modal_body_').contains(event.target)){
+        changeLogin();
+      }
+    });
     if (breadcrumbs.length > 1) {
       if (breadcrumbs[1].key === "/uz") {
         setLang("/uz");
@@ -24,7 +29,7 @@ const RegisterAndLogin = ({changeLogin}) => {
     }
   }, [breadcrumbs]);
   return (
-    <div onClick={() => changeLogin()}
+    <div
       id="authModal___BV_modal_outer_"
       style={{ position: "absolute", zIndex: 1040 }}
     >
@@ -34,6 +39,7 @@ const RegisterAndLogin = ({changeLogin}) => {
         aria-describedby="authModal___BV_modal_body_"
         className="modal fade show ya-auth-modal d-block"
         aria-modal="true"
+        style={{zIndex: 1041}}
       >
         <div className="modal-dialog modal-md modal-dialog-centered">
           <div id="authModal___BV_modal_content_" className="modal-content">

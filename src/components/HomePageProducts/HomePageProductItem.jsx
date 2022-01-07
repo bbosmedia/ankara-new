@@ -25,15 +25,15 @@ const HomePageProductItem = ({lang, item}) => {
                             <div className="card hvr-grow w-100">
                                 {lang === '/uz' && <Link to={`/uz/product/${item.id}`} ><img alt={item.nameUz} className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link>} 
                                 {lang === '/en' && <Link to={`/en/product/${item.id}`} ><img alt={item.nameEn} className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link>} 
-                                {lang === '' && <Link to={`/product/${item.id}`} ><img alt={item.nameRu} className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link>} 
+                                {lang === '' || lang === '/ru' && <Link to={`/product/${item.id}`} ><img alt={item.nameRu} className="card-img-top lazyLoad isLoaded" src={item.thumbnail} /></Link>} 
                                 <div className="card-body">
                                 {lang === '/uz' && <h5 className="card-title"><Link to={`/uz/product/${item.id}`} >{item.nameUz}</Link></h5>}
                                 {lang === '/en' && <h5 className="card-title"><Link to={`/en/product/${item.id}`} >{item.nameEn}</Link></h5>}
-                                {lang === '' && <h5 className="card-title"><Link to={`/product/${item.id}`} >{item.nameRu}</Link></h5>}
+                                {lang === '' || lang === '/ru' && <h5 className="card-title"><Link to={`/product/${item.id}`} >{item.nameRu}</Link></h5>}
                                 <div className="d-flex align-items-center justify-content-between">
                                     <p className="card-price">{numberWithSpaces(item.price)}</p>
                                     {qunatity === 0 && <>
-                                        {lang === '' && <a onClick={() =>dispatch(addToCart(item))} className="btn btn-danger btn-want">Хочу</a>}
+                                        {lang === '' || lang === '/ru' && <a onClick={() =>dispatch(addToCart(item))} className="btn btn-danger btn-want">Хочу</a>}
                                     {lang === '/uz' && <a onClick={() =>dispatch(addToCart(item))} className="btn btn-danger btn-want">Hohlayman</a>}
                                     {lang === '/en' && <a onClick={() =>dispatch(addToCart(item))} className="btn btn-danger btn-want">Want</a>}
                                     </>}
