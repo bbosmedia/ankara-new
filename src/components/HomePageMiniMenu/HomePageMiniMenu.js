@@ -31,13 +31,13 @@ const HomePageMiniMenu = ({lang}) => {
 const HomePageMiniMenuItem =({lang, item}) =>{
     if(lang === '/uz'){
         return (
-            <a href={`/#${item.id}`} className="ya-mini-menu-item">
+            <a href={`/uz/#${item.id}`} className="ya-mini-menu-item">
                 <img className="img-fluid mx-auto d-block rounded-circle ya-grow lazyLoad isLoaded" src={item.photo} /> <span>{item.nameUz}</span>
                 </a>
         )
     }else if(lang === '/en'){
         return (
-            <a href={`/#${item.id}`} className="ya-mini-menu-item">
+            <a href={`/en/#${item.id}`} className="ya-mini-menu-item">
                 <img className="img-fluid mx-auto d-block rounded-circle ya-grow lazyLoad isLoaded" src={item.photo} /> <span>{item.nameEn}</span>
                 </a>
         )
