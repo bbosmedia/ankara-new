@@ -1,24 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
-const MenuPageNavigation = ({lang}) => {
-    const [minimenu, setMinimenu] =  useState([]);
 
-    const fetchMenuItems = async() =>{
-        try{
-            var items = await axios.get('https://api.ankara.uz/shop/category')
-            if(items.status === 200){
-                setMinimenu(items.data);
-            }
-        }catch(e){
-            console.log(e);
-        }
-    }
-    useEffect(() => {
-        fetchMenuItems()
-    }, [lang])
-    if(minimenu === null) return null;
+const MenuPageNavigation = ({lang, minimenu}) => {
     return (
         <nav className="navbar navbar-expand navbar-light ya-menu-nav">
             <div className="collapse navbar-collapse">
@@ -29,11 +13,11 @@ const MenuPageNavigation = ({lang}) => {
                         {item.nameUz}
                     </Link>)
                     }else if(lang === '/en'){
-                        return (<Link key={item.id} to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
+                        return (<Link key={item.id} to={`/en/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
                         {item.nameEn}
                     </Link>)
                     }else{
-                        return (<Link key={item.id} to={`/uz/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
+                        return (<Link key={item.id} to={`/menu/${item.id}`} className="nav-item nav-link" aria-current="page">
                         {item.nameRu}
                     </Link>)
                     }
