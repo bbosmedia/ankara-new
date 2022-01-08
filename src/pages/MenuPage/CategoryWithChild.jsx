@@ -24,11 +24,11 @@ const CategoryWithChild = ({id, lang, menuitem}) => {
             {children && <div className="ya-menu-child mb-5">
                 {children.map(child=>{
                     if(lang === '/uz'){
-                        return(<Link key={child.id} to={`/uz/menu/#${child.id}`} className="btn btn-outline-dark mr-3">{child.nameUz}</Link>)
+                        return(<Link key={child.id} to={`/uz/menu/${id}/#${child.id}`} className="btn btn-outline-dark mr-3">{child.nameUz}</Link>)
                     }else if(lang === '/en'){
-                        return(<Link key={child.id} to={`/en/menu/#${child.id}`} className="btn btn-outline-dark mr-3">{child.nameEn}</Link>)
+                        return(<Link key={child.id} to={`/en/menu/${id}/#${child.id}`} className="btn btn-outline-dark mr-3">{child.nameEn}</Link>)
                     }else{
-                        return(<Link key={child.id} to={`/menu/#${child.id}`} className="btn btn-outline-dark mr-3">{child.nameRu}</Link>)
+                        return(<Link key={child.id} to={`/menu/${id}/#${child.id}`} className="btn btn-outline-dark mr-3">{child.nameRu}</Link>)
                     }
                 })}
             </div>}
