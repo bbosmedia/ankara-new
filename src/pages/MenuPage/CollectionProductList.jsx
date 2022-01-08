@@ -26,7 +26,9 @@ const CollectionProductList = ({id, lang, menuitem}) => {
       }
     useEffect(() => {
         if(menuitem.isCollection){
-            fetchProductsByCollection()
+            fetchProductsByCollection();
+        }else{
+            fetchProductsByCategory();
         }
     }, [id, lang, menuitem])
     return (

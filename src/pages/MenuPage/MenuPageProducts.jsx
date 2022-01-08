@@ -12,6 +12,8 @@ const MenuPageProducts = ({lang, menuitems}) => {
         return (<CollectionProductList id={id} lang={lang} menuitem={menuitem} />)
       }else if(menuitem.haveChild){
         return (<CategoryWithChild id={id} lang={lang} menuitem={menuitem} />)
+      }else{
+        return(<CollectionProductList id={menuitem.id} lang={lang} menuitem={menuitem} />)
       }
     }else{
       if(menuitems[0].isCollection){
