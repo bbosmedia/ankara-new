@@ -16,7 +16,7 @@ const YesProducts = ({lang, items}) => {
            <div className="cart-modal-content">
              {items.map(item =>{
                  return(
-                    <div className="card mc-item selected-product">
+                    <div key={item.id} className="card mc-item selected-product">
                     <Link to={`product/${item.id}`} >
                       <img alt="Сет Унаги предзаказ" loading="lazy" className="card-img lazyLoad isLoaded" src={item.thumbnail} />
                     </Link>

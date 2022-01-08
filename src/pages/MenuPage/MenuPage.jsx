@@ -24,8 +24,8 @@ const MenuPage = ({ lang }) => {
       <div className="ya-page-block">
         <MenuPageHeader />
         <div className="ya-page-text">
-          {minimenu && <MenuPageNavigation lang={lang} minimenu={minimenu} />}
-          <MenuPageProducts lang={lang} />
+          {minimenu.length > 0 && <MenuPageNavigation lang={lang} minimenu={minimenu} />}
+          {minimenu.length > 0 && <MenuPageProducts lang={lang} menuitems={minimenu} />}
         </div>
       </div>
     </div>
