@@ -32,7 +32,7 @@ const CollectionProductList = ({id, lang, menuitem}) => {
         }
     }, [id, lang, menuitem])
     return (
-        <div key={id} className="ya-menu-group py-4" style={{background: '#FFF'}}>
+        <div id={id} key={id} className="ya-menu-group py-4" style={{background: '#FFF'}}>
             {lang === '/uz' && <h1 className="ya-menu-title text-center mb-5">{menuitem.nameUz}</h1>}
             {lang === '/ru' && <h1 className="ya-menu-title text-center mb-5">{menuitem.nameRu}</h1>}
             {lang === '/en' && <h1 className="ya-menu-title text-center mb-5">{menuitem.nameEn}</h1>}
