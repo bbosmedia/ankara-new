@@ -22,6 +22,7 @@ import CartMenu from "./components/CartMenu/CartMenu";
 import MenuPage from "./pages/MenuPage/MenuPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterAndLogin from "./components/RegisterAndLoginModel/RegisterAndLogin";
+import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 
 function App() {
   const [sitelang, setSitelang] = useState(false);
@@ -118,6 +119,9 @@ function App() {
           <Route path="/uz/profile" element={<ProfilePage lang="/uz" />} />
           <Route path="/en/profile" element={<ProfilePage lang="/en" />} />
 
+          <Route path="/checkout" element={<CheckoutPage lang='/ru' />} />
+          <Route path="/uz/checkout" element={<CheckoutPage lang='/uz' />} />
+          <Route path="/en/checkout" element={<CheckoutPage lang='/en' />} />
 
           <Route path='*' element={<NotFoundPage />}  />
         </Routes>
