@@ -67,7 +67,7 @@ const CartMenu = ({ openCartMenu }) => {
                 ×
               </button>
             </header>
-            {items.length > 0 && <YesProducts items={items} lang={lang} />}
+            {items.length > 0 && <YesProducts items={items} lang={lang} changeCart={changeCart} />}
             {items.length === 0 && (
               <div id="cartModal___BV_modal_body_" className="modal-body">
                 <div className="cart-modal-content">

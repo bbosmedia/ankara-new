@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import React from 'react'
 import './HomePageMiniMenu.css'
+import { useSelector } from 'react-redux'
+import {selectFoodMenu} from '../../redux/FoodMenu'
 
 const HomePageMiniMenu = ({lang}) => {
-    const [minimenu, setMinimenu] =  useState([]);
-
-    const fetchMenuItems = async() =>{
-        try{
-            var items = await axios.get('https://api.ankara.uz/shop/category')
-            setMinimenu(items.data);
-        }catch(e){
-            console.log(e);
-        }
-    }
-    useEffect(() => {
-        fetchMenuItems()
-    }, [lang])
+    const minimenu = useSelector(selectFoodMenu);
     if(minimenu === null) return null;
     return (
         <div className="ya-mini-menu sticky-top" style={{top: "63px"}}>

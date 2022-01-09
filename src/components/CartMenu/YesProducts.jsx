@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import {selectCartTotalAmount, addToCart, decreaseCart} from '../../redux/CartRedux'
 
-const YesProducts = ({lang, items}) => {
+const YesProducts = ({lang, items, changeCart}) => {
     const totalAmount = useSelector(selectCartTotalAmount)
     const dispatch = useDispatch()
     function numberWithSpaces(x) {
@@ -18,7 +18,9 @@ const YesProducts = ({lang, items}) => {
                  return(
                     <div key={item.id} className="card mc-item selected-product">
                     <Link to={`product/${item.id}`} >
-                      <img alt="Сет Унаги предзаказ" loading="lazy" className="card-img lazyLoad isLoaded" src={item.thumbnail} />
+                      {lang === '/uz' && <img alt={item.nameUz} loading="lazy" className="card-img lazyLoad isLoaded" src={item.thumbnail} />}
+                      {lang === '/ru' && <img alt={item.nameRu} loading="lazy" className="card-img lazyLoad isLoaded" src={item.thumbnail} />}
+                      {lang === '/en' && <img alt={item.nameEn} loading="lazy" className="card-img lazyLoad isLoaded" src={item.thumbnail} />}
                     </Link>
                     <div className="card-body">
                       <h5 className="card-title">
@@ -41,15 +43,15 @@ const YesProducts = ({lang, items}) => {
            </div>
          </div>
          <footer id="cartModal___BV_modal_footer_" className="modal-footer">
-             {lang === '/ru' && <Link to='/checkout' className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
+             {lang === '/ru' && <Link to='/checkout' onClick={changeCart} className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
              <span>Оформить заказ</span>
              <span>{numberWithSpaces(totalAmount)} сум</span>
            </Link>}
-           {lang === '/en' && <Link to='/en/checkout'  className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
+           {lang === '/en' && <Link onClick={() => changeCart()} to='/en/checkout'  className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
              <span>Checkout</span>
              <span>{numberWithSpaces(totalAmount)} сум</span>
            </Link>}
-           {lang === '/uz' && <Link to='/uz/checkout'  className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
+           {lang === '/uz' && <Link onClick={() => changeCart()} to='/uz/checkout'  className="btn ya-btn-red d-flex justify-content-between w-100 px-4">
              <span>Buyurtmani Rasmiylashtirish</span>
              <span>{numberWithSpaces(totalAmount)} so'm</span>
            </Link>}

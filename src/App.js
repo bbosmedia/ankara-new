@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -23,8 +23,12 @@ import MenuPage from "./pages/MenuPage/MenuPage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import RegisterAndLogin from "./components/RegisterAndLoginModel/RegisterAndLogin";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+import { useDispatch } from 'react-redux'
+import {updateFoodMenu} from './redux/FoodMenu'
+import axios from "axios";
 
 function App() {
+  const dispatch = useDispatch();
   const [sitelang, setSitelang] = useState(false);
   const [computermenu, setComputermenu] = useState(false);
   const [cartmenu, setCartMenu] = useState(false);
@@ -45,6 +49,21 @@ function App() {
   const changeLogin = () =>{
     setLoginmoedel(!logimodel);
   }
+
+  const fetchMenuItems = async() =>{
+    try{
+        var items = await axios.get('https://api.ankara.uz/shop/category')
+        if(items.status === 200){
+            dispatch(updateFoodMenu(items.data));
+        }
+    }catch(e){
+        console.log(e);
+    }
+  }
+  useEffect(() => {
+    fetchMenuItems();
+  }, [])
+
   return (
     <Router>
       <div className="App">

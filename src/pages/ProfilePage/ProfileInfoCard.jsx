@@ -11,7 +11,7 @@ const ProfileInfoCard = ({lang, phoneNumber, dateBirth, dateRegistarion}) => {
                   <h5 className="mb-4">Shaxsiy ma'lumotlar</h5>
                   <div className="ya-profile-detail">
                      <p className="ya-profile-label">Telefon raqami:</p>
-                     <p className="ya-profile-value">{phoneNumber}</p>
+                     <p className="ya-profile-value">+{phoneNumber}</p>
                   </div>
                   <div className="ya-profile-detail">
                      <p className="ya-profile-label">Tug'ilgan kun sanasi:</p>
@@ -25,7 +25,7 @@ const ProfileInfoCard = ({lang, phoneNumber, dateBirth, dateRegistarion}) => {
                         {dateRegistarion}
                      </p>
                   </div>
-                  <a ocClick={logout} className="ya-exit-btn">Chiqish</a>
+                  <a onClick={logout} className="ya-exit-btn">Chiqish</a>
                </div>
             </div>
         )
@@ -36,7 +36,7 @@ const ProfileInfoCard = ({lang, phoneNumber, dateBirth, dateRegistarion}) => {
                   <h5 className="mb-4">Personal data</h5>
                   <div className="ya-profile-detail">
                      <p className="ya-profile-label">Phone number:</p>
-                     <p className="ya-profile-value">{phoneNumber}</p>
+                     <p className="ya-profile-value">+{phoneNumber}</p>
                   </div>
                   <div className="ya-profile-detail">
                      <p className="ya-profile-label">Date of birth:</p>
@@ -50,7 +50,7 @@ const ProfileInfoCard = ({lang, phoneNumber, dateBirth, dateRegistarion}) => {
                         {dateRegistarion}
                      </p>
                   </div>
-                  <a ocClick={logout} className="ya-exit-btn">Exit</a>
+                  <a onClick={logout} className="ya-exit-btn">Exit</a>
                </div>
             </div>
         )
@@ -61,7 +61,7 @@ const ProfileInfoCard = ({lang, phoneNumber, dateBirth, dateRegistarion}) => {
                   <h5 className="mb-4">Личные данные</h5>
                   <div className="ya-profile-detail">
                      <p className="ya-profile-label">Номер телефона:</p>
-                     <p className="ya-profile-value">{phoneNumber}</p>
+                     <p className="ya-profile-value">+{phoneNumber}</p>
                   </div>
                   <div className="ya-profile-detail">
                      <p className="ya-profile-label">Дата рождения:</p>
@@ -75,7 +75,7 @@ const ProfileInfoCard = ({lang, phoneNumber, dateBirth, dateRegistarion}) => {
                         {dateRegistarion}
                      </p>
                   </div>
-                  <a ocClick={logout} className="ya-exit-btn">Выйти</a>
+                  <a onClick={logout} className="ya-exit-btn">Выйти</a>
                </div>
             </div>
         )

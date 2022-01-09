@@ -1,21 +1,39 @@
+import axios from "axios";
 import React from "react";
+import { useState, useEffect } from "react";
 import ProfileCard from "./ProfileCard";
 import ProfileCardQR from "./ProfileCardQR";
 import ProfileInfoCard from "./ProfileInfoCard";
 
 const ProfileLeftSidebar = ({ lang }) => {
+  const [user, setUser] =  useState(null);
+  const fetchUser= async() =>{
+    try{
+        var users = await axios.get('https://api.ankara.uz/profile', {headers: {'Authorization': 'Bearer wst7Cx2I7GHUeliaeYTKf0Pua6VbGDSz'}})
+        if(users.status === 200){
+            setUser(users.data)
+            console.log(users.data)
+        }
+    }catch(e){
+        console.log(e);
+    }
+  }
+  useEffect(() => {
+    fetchUser()
+  }, [])
+  if(user === null) return null
   return (
     <>
       <ProfileCard
         lang={lang}
-        name="Abbos Nurgulshanov"
+        name={user.fullName}
         imgLink="/images/logo.svg"
       />
       <ProfileInfoCard
         lang={lang}
-        phoneNumber="+998977080497"
-        dateBirth="10.04.1997"
-        dateRegistarion="05.01.2022"
+        phoneNumber={user.phone}
+        dateBirth={user.birthDate}
+        dateRegistarion={user.date.cre}
       />
       <ProfileCardQR
         lang={lang}

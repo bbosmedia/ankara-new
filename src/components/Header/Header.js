@@ -8,7 +8,7 @@ const Header = ({langModel, changeComputerMenu, openCartMenu, changeLogin}) => {
   return (
     <>
       <div id="header" className="sticky-top">
-        <MobileMenu />
+        <MobileMenu openCartMenu={openCartMenu} changeLogin={changeLogin} />
         <ComputerMenu langModel={langModel} changeComputerMenu={changeComputerMenu} openCartMenu={openCartMenu} changeLogin={changeLogin}/>
       </div>
     </>

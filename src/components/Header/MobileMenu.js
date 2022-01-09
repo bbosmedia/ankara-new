@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MobileMenu = () => {
+const MobileMenu = ({openCartMenu, changeLogin}) => {
   return (
     <div className="ya-mobile-menu d-flex d-md-none">
       <Link
@@ -51,7 +51,7 @@ const MobileMenu = () => {
             className="d-inline-block align-middle lazyLoad"
           />
         </Link>
-        <a href="#" className="ya-cart-icon">
+        <a onClick={() => openCartMenu()} className="ya-cart-icon">
           <img
             loading="lazy"
             height="20"
