@@ -3,10 +3,13 @@ import ComputerMenuEn from "./ComputerMenu/ComputerMenuEn";
 import ComputerMenuRu from "./ComputerMenu/ComputerMenuRu";
 import ComputerMenuUz from "./ComputerMenu/ComputerMenuUz";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
+import { useSelector } from "react-redux";
+import { selectAccesToken } from "../../redux/ChangeRegister";
 
 const ComputerMenu = ({langModel, changeComputerMenu, openCartMenu, changeLogin}) => {
   const [lang, setLang] = useState("/ru");
   const breadcrumbs = useBreadcrumbs();
+  const accessToken = useSelector(selectAccesToken)
   const removeClass = () =>{
     document.querySelector('body').classList.add('modal-open')
     changeComputerMenu()
@@ -30,11 +33,11 @@ const ComputerMenu = ({langModel, changeComputerMenu, openCartMenu, changeLogin}
     }
   }, [breadcrumbs]);
   if (lang === "/uz") {
-    return <ComputerMenuUz langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} />;
+    return <ComputerMenuUz langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} accessToken={accessToken} />;
   } else if (lang === "/en") {
-    return <ComputerMenuEn langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} />;
+    return <ComputerMenuEn langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} accessToken={accessToken} />;
   } else {
-    return <ComputerMenuRu langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} />;
+    return <ComputerMenuRu langModel={langModel} changeComputerMenu={removeClass} openCartMenu={addClassCartMenu} changeLogin={changeLogin} accessToken={accessToken} />;
   }
 };
 

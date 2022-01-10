@@ -5,17 +5,23 @@ const registerSlice = createSlice({
     name: 'register',
     initialState: {
       register: localStorage.getItem('ankaraRegisterqaeqeqea') ? JSON.parse(localStorage.getItem('ankaraRegisterqaeqeqea')) : 'login',
+      accessToken: localStorage.getItem('sjajnsknca') ? JSON.parse(localStorage.getItem('sjajnsknca')) : ''
     },
     reducers: {
       changeRegister(state, action){
           state.register = action.payload;
           localStorage.setItem('ankaraRegisterqaeqeqea', JSON.stringify(state.register))
       },
+      updateAccesToken(state, action){
+        state.accessToken = action.payload
+        localStorage.setItem('sjajnsknca', JSON.stringify(state.accessToken))
+      }
     }
   })
 
-  export const { changeRegister } = registerSlice.actions
+  export const { changeRegister, updateAccesToken } = registerSlice.actions
 
   export const selectRegister = state => state.register.register;
+  export const selectAccesToken = state => state.register.accessToken;
 
   export default registerSlice.reducer;

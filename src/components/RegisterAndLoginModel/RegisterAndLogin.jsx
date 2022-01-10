@@ -52,7 +52,7 @@ const RegisterAndLogin = ({changeLogin}) => {
                     className="lazyLoad isLoaded"
                   />
                 </div>
-                {register === 'login' && <Login lang={lang} />}
+                {register === 'login' && <Login lang={lang} changeLogin={changeLogin} />}
                 {register === 'register' && <Register lang={lang} />}
               </form>
             </div>

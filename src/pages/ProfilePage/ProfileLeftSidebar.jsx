@@ -1,15 +1,18 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectAccesToken } from "../../redux/ChangeRegister";
 import ProfileCard from "./ProfileCard";
 import ProfileCardQR from "./ProfileCardQR";
 import ProfileInfoCard from "./ProfileInfoCard";
 
 const ProfileLeftSidebar = ({ lang }) => {
   const [user, setUser] =  useState(null);
+  const accessToken = useSelector(selectAccesToken)
   const fetchUser= async() =>{
     try{
-        var users = await axios.get('https://api.ankara.uz/profile', {headers: {'Authorization': 'Bearer wst7Cx2I7GHUeliaeYTKf0Pua6VbGDSz'}})
+        var users = await axios.get('https://api.ankara.uz/profile', {headers: {'Authorization': 'Bearer ' + accessToken}})
         if(users.status === 200){
             setUser(users.data)
             console.log(users.data)

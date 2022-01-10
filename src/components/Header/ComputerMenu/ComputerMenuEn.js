@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
 import ComputerMenuIcon from "./ComputerMenuIcon";
 
-const ComputerMenuEn = ({langModel, changeComputerMenu, openCartMenu, changeLogin}) => {
+const ComputerMenuEn = ({langModel, changeComputerMenu, openCartMenu, changeLogin, accessToken}) => {
   const breadcrumbs = useBreadcrumbs();
   function navCalss(first) {
     if (breadcrumbs.length === 3) {
@@ -82,8 +82,7 @@ const ComputerMenuEn = ({langModel, changeComputerMenu, openCartMenu, changeLogi
                 className="d-inline-block align-middle lazyLoad isLoaded"
               />
             </Link>
-            <a
-            onClick={()=>changeLogin()}
+            {accessToken.length === 0 && <a onClick={() =>changeLogin()}
               aria-current="page"
               className="nav-item nav-link border-left-0 pt-0 pb-0 nuxt-link-exact-active nuxt-link-active"
               role="button"
@@ -95,7 +94,20 @@ const ComputerMenuEn = ({langModel, changeComputerMenu, openCartMenu, changeLogi
                 src="/images/ic_profile.d6b094d.svg"
                 className="d-inline-block align-middle lazyLoad isLoaded"
               />
-            </a>
+            </a>}
+            {accessToken.length > 0 && <Link to='/en/profile'
+              aria-current="page"
+              className="nav-item nav-link border-left-0 pt-0 pb-0 nuxt-link-exact-active nuxt-link-active"
+              role="button"
+            >
+              <img
+                alt="Profile Icon"
+                loading="lazy"
+                height="25"
+                src="/images/ic_profile.d6b094d.svg"
+                className="d-inline-block align-middle lazyLoad isLoaded"
+              />
+            </Link>}
             <ComputerMenuIcon openCartMenu={openCartMenu} />
             <a
             onClick={changeComputerMenu}
