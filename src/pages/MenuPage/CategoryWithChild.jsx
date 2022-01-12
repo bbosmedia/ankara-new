@@ -16,7 +16,6 @@ const CategoryWithChild = ({id, lang, menuitem}) => {
         }
       }
       useEffect(() => {
-          console.log(id)
           fetchChildren();
       }, [])
     return (

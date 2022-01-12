@@ -57,7 +57,6 @@ const Login = ({changeLogin}) => {
                     phone: str.toString(),
                   })
                 if(token.status === 200){
-                    console.log(token.data);
                     setSentcode(true);
                 }
             }catch(e){
@@ -103,7 +102,7 @@ const Login = ({changeLogin}) => {
                      </div>
                      </>
                      }
-                      {sentcode && <input id="auth-phone" type="text" value={phone} placeholder={phone} autocomplete="off" class="form-control" disabled="disabled" />}
+                      {sentcode && <input id="auth-phone" type="text" value={phone} placeholder={phone} autoComplete="off" class="form-control" disabled="disabled" />}
                   </div>
                   {sentcode && 
                         <div>

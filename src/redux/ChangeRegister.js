@@ -15,11 +15,15 @@ const registerSlice = createSlice({
       updateAccesToken(state, action){
         state.accessToken = action.payload
         localStorage.setItem('sjajnsknca', JSON.stringify(state.accessToken))
+      },
+      deleteAccesToken(state, action){
+        state.accessToken = ""
+        localStorage.removeItem("sjajnsknca")
       }
     }
   })
 
-  export const { changeRegister, updateAccesToken } = registerSlice.actions
+  export const { changeRegister, updateAccesToken, deleteAccesToken } = registerSlice.actions
 
   export const selectRegister = state => state.register.register;
   export const selectAccesToken = state => state.register.accessToken;

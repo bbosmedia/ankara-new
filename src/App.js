@@ -26,6 +26,7 @@ import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 import { useDispatch } from 'react-redux'
 import {updateFoodMenu} from './redux/FoodMenu'
 import axios from "axios";
+import PrivateRoute from "./PrivateRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -134,9 +135,15 @@ function App() {
           <Route path='/uz/product/:id' element={<ProductMainPage lang='/uz' />} />
           <Route path='/en/product/:id' element={<ProductMainPage lang='/en' />} />
 
-          <Route path="/profile" element={<ProfilePage lang="/ru" />} />
-          <Route path="/uz/profile" element={<ProfilePage lang="/uz" />} />
-          <Route path="/en/profile" element={<ProfilePage lang="/en" />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/profile" element={<ProfilePage lang="/ru" />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/uz/profile" element={<ProfilePage lang="/uz" />} />
+          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path="/en/profile" element={<ProfilePage lang="/en" />} />
+          </Route>
 
           <Route path="/checkout" element={<CheckoutPage lang='/ru' />} />
           <Route path="/uz/checkout" element={<CheckoutPage lang='/uz' />} />

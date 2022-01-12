@@ -1,8 +1,22 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom'
+import { deleteCard } from '../../redux/CartRedux';
+import { deleteAccesToken } from '../../redux/ChangeRegister';
 
 const ProfileInfoCard = ({lang, phoneNumber, dateBirth, dateRegistarion}) => {
+   const dispatch = useDispatch();
+   const navigate = useNavigate()
     const logout = () =>{
-        console.log('Logout');
+       dispatch(deleteAccesToken());
+       dispatch(deleteCard());
+       if(lang === '/uz'){
+         navigate("/uz", { replace: true });
+       }else if(lang === '/en'){
+         navigate("/en", { replace: true });
+       }else{
+         navigate("/", { replace: true });
+       }
     }
     if(lang === '/uz'){
         return(

@@ -37,11 +37,19 @@ const cartSlice = createSlice({
           localStorage.setItem('cartItemsOfAnkaraKebap', JSON.stringify(state.cartItems))
           localStorage.setItem('cartItemsTotalAmount', JSON.stringify(state.cartTotalAmount))
           localStorage.setItem('cartItemsTotalQuantity', JSON.stringify(state.cartTotalQuantity))
+      },
+      deleteCard(state, action){
+        localStorage.removeItem('cartItemsOfAnkaraKebap');
+        localStorage.removeItem('cartItemsTotalAmount');
+        localStorage.removeItem('cartItemsTotalQuantity');
+        state.cartItems = [];
+        state.cartTotalAmount = 0;
+        state.cartTotalQuantity = 0;
       }
     }
   })
 
-  export const { addToCart, decreaseCart } = cartSlice.actions
+  export const { addToCart, decreaseCart, deleteCard } = cartSlice.actions
 
   export const selectCart = state => state.cart.cartItems;
   export const selectCartTotalQuantity = state => state.cart.cartTotalQuantity;

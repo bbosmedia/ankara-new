@@ -4,7 +4,6 @@ import { Link, useParams } from 'react-router-dom';
 
 const MenuPageNavigation = ({lang, minimenu}) => {
     const {id} = useParams()
-    console.log(id);
     return (
         <nav className="navbar navbar-expand navbar-light ya-menu-nav">
             <div className="collapse navbar-collapse">
