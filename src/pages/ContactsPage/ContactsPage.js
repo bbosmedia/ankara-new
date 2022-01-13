@@ -73,12 +73,12 @@ const ContactsPage = ({ lang }) => {
 					</div>
 					<div className="col-md-6">
 						<YMaps>
-							<Map style={{ height: '85vh' }} defaultState={{ center: [41.2995, 69.2401], zoom: 12 }}>
+							<Map style={{ height: '85vh' }} defaultState={{ center: [41.3308916, 69.2450557], zoom: 12 }}>
 								<Placemark
 									defaultGeometry={[41.3308916, 69.2450557]}
 									options={{
 										iconLayout: 'default#image',
-										iconImageHref: 'images/placemarker.png',
+										iconImageHref: '/images/placemarker.png',
 										iconImageSize: [70, 70],
 									}}
 								/>
@@ -86,7 +86,7 @@ const ContactsPage = ({ lang }) => {
 									defaultGeometry={[41.3069837, 69.2811906]}
 									options={{
 										iconLayout: 'default#image',
-										iconImageHref: 'images/placemarker.png',
+										iconImageHref: '/images/placemarker.png',
 										iconImageSize: [70, 70],
 									}}
 								/>
@@ -94,7 +94,7 @@ const ContactsPage = ({ lang }) => {
 									defaultGeometry={[41.3416481, 69.2211026]}
 									options={{
 										iconLayout: 'default#image',
-										iconImageHref: 'images/placemarker.png',
+										iconImageHref: '/images/placemarker.png',
 										iconImageSize: [70, 70],
 									}}
 								/>
