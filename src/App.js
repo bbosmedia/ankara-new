@@ -110,8 +110,10 @@ function App() {
           <Route path="/uz/offer" element={<OfferPage lang="/uz" />} />
           <Route path="/en/offer" element={<OfferPage lang="/en" />} />
 
-
-          <Route path="/rules" element={<RulesPage />} />
+          {/* Rules Page */}
+          <Route path="/rules" element={<RulesPage lang="/ru" />} />
+          <Route path="/uz/rules" element={<RulesPage lang="/uz" />} />
+          <Route path="/en/rules" element={<RulesPage lang="/en" />} />
 
           {/* Actions Page */}
           <Route path="/actions" element={<ActionsPage lang="" />} />
