@@ -96,10 +96,12 @@ function App() {
           <Route path="/en/gallery/:id" element={<GalleryItemPage lang="/en" />} />
 
           {/* About Page */}
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about" element={<AboutPage lang="/ru" />} />
+          <Route path="/uz/about" element={<AboutPage lang="/uz" />} />
+          <Route path="/en/about" element={<AboutPage lang="/en" />} />
 
           {/* Delivery Page */}
-          <Route path="/delivery" element={<DeliveryPage lang='' />} />
+          <Route path="/delivery" element={<DeliveryPage lang='/ru' />} />
           <Route path="/uz/delivery" element={<DeliveryPage lang='/uz' />} />
           <Route path="/en/delivery" element={<DeliveryPage lang='/en' />} />
 
