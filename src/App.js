@@ -126,7 +126,9 @@ function App() {
           <Route path="/en/actions/:id" element={<SubActionPage lang="/en" />} />
 
           {/* Contacts */}
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/contacts" element={<ContactsPage lang="/ru" />} />
+          <Route path="/uz/contacts" element={<ContactsPage lang="/uz" />} />
+          <Route path="/en/contacts" element={<ContactsPage lang="/en" />} />
 
           {/* Restaurants */}
           <Route path="/restaurants" element={<RestaurantsPage lang="/ru" />} />
