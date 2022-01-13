@@ -105,9 +105,12 @@ function App() {
           <Route path="/uz/delivery" element={<DeliveryPage lang='/uz' />} />
           <Route path="/en/delivery" element={<DeliveryPage lang='/en' />} />
 
+          {/* Offer Page */}
+          <Route path="/offer" element={<OfferPage lang="/ru" />} />
+          <Route path="/uz/offer" element={<OfferPage lang="/uz" />} />
+          <Route path="/en/offer" element={<OfferPage lang="/en" />} />
 
 
-          <Route path="/offer" element={<OfferPage />} />
           <Route path="/rules" element={<RulesPage />} />
 
           {/* Actions Page */}
