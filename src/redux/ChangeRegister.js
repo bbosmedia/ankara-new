@@ -8,7 +8,10 @@ const registerSlice = createSlice({
       accessToken: localStorage.getItem('sjajnsknca') ? JSON.parse(localStorage.getItem('sjajnsknca')) : '',
       phoneNumber: '',
       userName: '',
-      
+      date: '',
+      validatePhoneNumber: false,
+      validateUserName: false,
+      validateDate: false,
     },
     reducers: {
       changeRegister(state, action){
