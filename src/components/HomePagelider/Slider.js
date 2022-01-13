@@ -1,5 +1,5 @@
 import React from 'react'
-// import Swiper core and required modules
+
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,10 +11,42 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import './Slider.css'
+import { useEffect } from 'react';
+import { useState } from 'react';
+import axios from 'axios';
+import useBreadcrumbs from "use-react-router-breadcrumbs";
 
 
 const SliderHomepage = () => {
+  const [sliders, setSliders] = useState([]);
+  const [lang, setLang] = useState("/ru");
+  const breadcrumbs = useBreadcrumbs();
+  const getSliders = async() =>{
+    try{
+      var items = await axios.get('https://api.ankara.uz/shop/category')
+      if(items.status === 200){
+          setSliders(items.data)
+      }
+  }catch(e){
+      console.log(e);
+  }
+  }
+  useEffect(() => {
+    if (breadcrumbs.length > 1) {
+      if (breadcrumbs[1].key === "/uz") {
+        setLang("/uz");
+      } else if (breadcrumbs[1].key === "/en") {
+        setLang("/en");
+      } else {
+        setLang("/ru");
+      }
+    } else {
+      setLang("/ru");
+    }
+    getSliders();
+  }, [breadcrumbs])
   SwiperCore.use([Autoplay]);
+    if(sliders.length === 0) return null;
     return (
         <Swiper
         // install Swiper modules
@@ -27,18 +59,15 @@ const SliderHomepage = () => {
           delay: 5000,
       }}
       >
-        <SwiperSlide>
-          <img style={{width: "100%", height: "auto"}} src="https://cdn.yaponamama.uz/sliders/slider_1638343427.png" alt="" />
+        {sliders.map(slider=>{
+          return(
+            <SwiperSlide key={slider.id}>
+              {lang ==='/ru' && <img style={{width: "100%", height: "auto"}} src={slider.photoRu} />}
+              {lang ==='/uz' && <img style={{width: "100%", height: "auto"}} src={slider.photoUz} />}
+              {lang ==='/en' && <img style={{width: "100%", height: "auto"}} src={slider.photoEn} />}
         </SwiperSlide>
-        <SwiperSlide>
-          <img style={{width: "100%", height: "auto"}} src="https://cdn.yaponamama.uz/sliders/slider_1637322033.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img style={{width: "100%", height: "auto"}} src="https://cdn.yaponamama.uz/sliders/slider_1636626231.png" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img style={{width: "100%", height: "auto"}} src="https://cdn.yaponamama.uz/sliders/slider_1633687420.jpg" alt="" />
-        </SwiperSlide>
+          )
+        })}
       </Swiper>
     )
 }
