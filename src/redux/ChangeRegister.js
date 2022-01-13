@@ -5,7 +5,10 @@ const registerSlice = createSlice({
     name: 'register',
     initialState: {
       register: localStorage.getItem('ankaraRegisterqaeqeqea') ? JSON.parse(localStorage.getItem('ankaraRegisterqaeqeqea')) : 'login',
-      accessToken: localStorage.getItem('sjajnsknca') ? JSON.parse(localStorage.getItem('sjajnsknca')) : ''
+      accessToken: localStorage.getItem('sjajnsknca') ? JSON.parse(localStorage.getItem('sjajnsknca')) : '',
+      phoneNumber: '',
+      userName: '',
+      
     },
     reducers: {
       changeRegister(state, action){

@@ -1,3 +1,13 @@
-.ya-cb-balance strong{
-    padding: 0 5px;
+.ya-cb-balance strong {
+	padding: 0 5px;
+}
+
+.ya-exit-btn {
+	cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.ya-exit-btn:hover{
+    text-decoration: none;
+    letter-spacing: 1px;
 }
