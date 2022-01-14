@@ -1,19 +1,21 @@
 import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { selectAccesToken } from "../../redux/ChangeRegister";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserData, selectAccesToken, selectUserdata } from "../../redux/ChangeRegister";
 import ProfileCard from "./ProfileCard";
 import ProfileInfoCard from "./ProfileInfoCard";
 
 const ProfileLeftSidebar = ({ lang }) => {
-  const [user, setUser] =  useState(null);
-  const accessToken = useSelector(selectAccesToken)
+
+  const dispatch = useDispatch();
+  const accessToken = useSelector(selectAccesToken);
+  const userData = useSelector(selectUserdata);
   const fetchUser= async() =>{
     try{
         var users = await axios.get('https://api.ankara.uz/profile', {headers: {'Authorization': 'Bearer ' + accessToken}})
         if(users.status === 200){
-            setUser(users.data)
+           dispatch(getUserData(users.data));
         }
     }catch(e){
         console.log(e);
@@ -22,19 +24,19 @@ const ProfileLeftSidebar = ({ lang }) => {
   useEffect(() => {
     fetchUser()
   }, [])
-  if(user === null) return null
+  if(userData.length === 0) return null
   return (
     <>
       <ProfileCard
         lang={lang}
-        name={user.fullName}
+        name={userData.fullName}
         imgLink="/images/logo.svg"
       />
       <ProfileInfoCard
         lang={lang}
-        phoneNumber={user.phone}
-        dateBirth={user.birthDate}
-        dateRegistarion={user.date.cre}
+        phoneNumber={userData.phone}
+        dateBirth={userData.birthDate}
+        dateRegistarion={userData.date.created}
       />
     </>
   );

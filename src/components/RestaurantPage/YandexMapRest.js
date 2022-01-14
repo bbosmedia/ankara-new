@@ -6,7 +6,7 @@ const YandexMapRest = ({lang, setPagename, maps}) => {
         return(
             <div className='yandex-map-de'>
                 <div className='yandexmap'>
-                    <YMaps>
+                    <YMaps onClick={(e) => console.log(e)} >
                 <Map style={{height: "100%"}} defaultState={{ center: [41.2995, 69.2401], zoom: 12 }}>
                 <Placemark defaultGeometry={[41.3308916, 69.2450557]} options={{
                 iconLayout: 'default#image',

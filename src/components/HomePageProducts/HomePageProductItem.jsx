@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCart, selectCart, decreaseCart} from "../../redux/CartRedux";
 import './homePageProductItem.css'
+import FunctionsAnkara, { numberWithSpaces } from "../../functionsAnkara";
 
 const HomePageProductItem = ({lang, item}) => {
     const [qunatity, setQunatity] = useState(0)
-    function numberWithSpaces(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
+    
     const cart = useSelector(selectCart);
     const dispatch = useDispatch()
     useEffect(() => {

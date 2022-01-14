@@ -53,7 +53,7 @@ const RegisterAndLogin = ({changeLogin}) => {
                   />
                 </div>
                 {register === 'login' && <Login lang={lang} changeLogin={changeLogin} />}
-                {register === 'register' && <Register lang={lang} />}
+                {register === 'register' && <Register lang={lang} changeLogin={changeLogin} />}
               </form>
             </div>
           </div>

@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 import {selectCartTotalAmount, addToCart, decreaseCart} from '../../redux/CartRedux'
+import { numberWithSpaces } from '../../functionsAnkara'
 
 const YesProducts = ({lang, items, changeCart}) => {
     const totalAmount = useSelector(selectCartTotalAmount)
     const dispatch = useDispatch()
-    function numberWithSpaces(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
+   
         return(
             <>
             <div id="cartModal___BV_modal_body_" className="modal-body">

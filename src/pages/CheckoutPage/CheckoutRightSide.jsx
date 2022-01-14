@@ -1,10 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { numberWithSpaces } from "../../functionsAnkara";
 import { selectCartTotalAmount, selectCart } from "../../redux/CartRedux";
 
-function numberWithSpaces(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-}
+
 
 const CheckoutRightSide = ({ lang }) => {
   const totalAmount = useSelector(selectCartTotalAmount);

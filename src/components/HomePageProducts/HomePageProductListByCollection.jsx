@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 import HomePageProductItem from "./HomePageProductItem";
 
 const HomePageProductListByCollection = ({lang, id}) => {
-    function numberWithSpaces(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
     const [items, setItems] = useState(null);
     const fetchGalItems = async () => {
         try {

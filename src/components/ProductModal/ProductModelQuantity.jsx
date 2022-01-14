@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { numberWithSpaces } from "../../functionsAnkara";
 import { addToCart, selectCart, decreaseCart } from "../../redux/CartRedux";
 
 const ProductModelQuantity = ({ items, lang }) => {
-  function numberWithSpaces(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  }
   const [qunatity, setQunatity] = useState(0);
   const cart = useSelector(selectCart);
   const dispatch = useDispatch();

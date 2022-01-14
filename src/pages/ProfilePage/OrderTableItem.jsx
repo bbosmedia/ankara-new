@@ -1,10 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { numberWithSpaces } from '../../functionsAnkara'
 
 const OrderTableItem = ({ lang, item }) => {
-    function numberWithSpaces(x) {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-    }
 	const navigate = useNavigate()
 	const changePage = ({id}) => {
 		if (lang === '/uz') {
