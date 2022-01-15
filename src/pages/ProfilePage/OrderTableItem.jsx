@@ -4,7 +4,7 @@ import { numberWithSpaces } from '../../functionsAnkara'
 
 const OrderTableItem = ({ lang, item }) => {
 	const navigate = useNavigate()
-	const changePage = ({id}) => {
+	const changePage = (id) => {
 		if (lang === '/uz') {
 			navigate(`/uz/profile/${id}`)
 		} else if (lang === '/en') {
@@ -14,7 +14,7 @@ const OrderTableItem = ({ lang, item }) => {
 		}
 	}
 	return (
-		<tr onClick={changePage}>
+		<tr onClick={()=>changePage(item.id)}>
 			<th scope="row">{item.id}</th>
 			<td>{item.created_at}</td>
 			<td></td>

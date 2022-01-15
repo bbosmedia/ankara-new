@@ -31,7 +31,7 @@ const Register = ({ lang, changeLogin }) => {
 				setValidatePhone(true)
 				if (validateDate && validateName && name.length > 1 && date.length === 10 && Number.isInteger(str)) {
 					setValidateFull(false)
-					console.log('Abbos')
+					
 				}
 			} else {
 				setValidateFull(true)
@@ -50,7 +50,6 @@ const Register = ({ lang, changeLogin }) => {
 		var strName = e.target.value
 		setName(strName)
 		strName = strName.replace(/ /g, '')
-		console.log(strName.length)
 		if (strName.length > 1) {
 			setValidateName(true)
 		} else {
@@ -106,8 +105,7 @@ const Register = ({ lang, changeLogin }) => {
 					setGetCode(true)
 				}
 			} catch (e) {
-				console.log(e.response.data)
-				console.log(e.response.data.birthdate.length)
+
 				if (e.response.data.birthdate.length > 0) {
 					setValidateDate(false)
 				}
@@ -136,7 +134,7 @@ const Register = ({ lang, changeLogin }) => {
 					code: code.toString(),
 				})
 				if (token.status === 200) {
-					console.log(token.data)
+					
 					dispatch(updateAccesToken(token.data))
 					setGetCode(false)
 					setValidateCode(true)
@@ -147,8 +145,7 @@ const Register = ({ lang, changeLogin }) => {
 					changeLogin()
 				}
 			} catch (e) {
-				console.log(e.response.data)
-				console.log(e.response.data.birthdate.length)
+
 				if (e.response.data.birthdate.length > 0) {
 					setValidateDate(false)
 				}

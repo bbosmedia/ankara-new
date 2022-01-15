@@ -13,7 +13,7 @@ const HomePageProducts = ({lang}) => {
             setItems(items.data);
           }
         } catch (e) {
-          console.log('Abbos');
+          throw e;
         }
       };
       useEffect(() => {
