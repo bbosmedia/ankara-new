@@ -32,7 +32,10 @@ const OrderPage = ({ lang }) => {
       <div className="ya-page-block ya-profile-page">
         <OrderPageHeader lang={lang} />
         <div className="ya-order-detail">
-          <h1 className="modal-title mb-4">Заказ #800774</h1>
+          {lang === '/uz' && <h1 className="modal-title mb-4">Burutma #{order.id}</h1>}
+          {lang === '/en' && <h1 className="modal-title mb-4">Order #{order.id}</h1>}
+          {lang === '/ru' && <h1 className="modal-title mb-4">Заказ #{order.id}</h1>}
+          
           <div className="row mb-4">
             <OrderTopLeft lang={lang} userData={userData} date={order.created_at} />
             <div className="col-md-6">
