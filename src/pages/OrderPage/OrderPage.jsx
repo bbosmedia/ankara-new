@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectAccesToken, selectUserdata } from "../../redux/ChangeRegister";
 import OrderTopLeft from "./OrderTopLeft";
+import OrderPageRight from "./OrderPageRight";
 
 const OrderPage = ({ lang }) => {
     const accessToken = useSelector(selectAccesToken);
@@ -38,19 +39,7 @@ const OrderPage = ({ lang }) => {
           
           <div className="row mb-4">
             <OrderTopLeft lang={lang} userData={userData} date={order.created_at} />
-            <div className="col-md-6">
-              <table className="table table-striped">
-                <tr>
-                  <td className="text-nowrap">Сумма:</td> <td>110 000 сум</td>
-                </tr>
-                <tr>
-                  <td className="text-nowrap">Способ оплаты:</td> <td>Click</td>
-                </tr>
-                <tr>
-                  <td className="text-nowrap">Статус:</td> <td>Отменена</td>
-                </tr>
-              </table>
-            </div>
+            <OrderPageRight lang={lang} order={order} />
           </div>
           <h3 className="modal-title mb-4">Продукты</h3>
           <table className="table table-striped">
