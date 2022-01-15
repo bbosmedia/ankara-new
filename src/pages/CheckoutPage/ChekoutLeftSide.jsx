@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import CheckoutPageOrderTop from './CheckoutPageOrderTop';
+
 
 const ChekoutLeftSide = ({lang}) => {
     const [position, setPosition] = useState('delivery');
@@ -21,20 +23,12 @@ const ChekoutLeftSide = ({lang}) => {
                             {lang === '/uz' && 'Olib ketish'}
                         </a>
                      </li>
-                     
                   </ul>
                </div>
                <div className="tab-content" id="__BVID__1291__BV_tab_container_">
                   <div  role="tabpanel" aria-hidden="false" className="tab-pane active card-body" id="__BVID__1292" aria-labelledby="__BVID__1292___BV_tab_button__">
                      <form  action="/">
-                        <div  className="form-row form-mb">
-                           <div  className="col">
-                              <input  autoComplete="off" placeholder="ФИО" className="form-control" /> 
-                           </div>
-                           <div  className="col">
-                              <input  type="text" placeholder="+998 99 123-45-67" autoComplete="off" className="form-control" />  
-                           </div>
-                        </div>
+                        <CheckoutPageOrderTop lang={lang} />
                         <p ><em >* Найдите на карте адрес доставки и кликайте на него.</em></p>
                         
                         <div  className="form-row form-mb">
@@ -42,9 +36,6 @@ const ChekoutLeftSide = ({lang}) => {
                               <input  autoComplete="off" placeholder="Улица" className="form-control" /> 
                               <div  className="invalid-feedback">
                                  Пожалуйста, введите улица
-                              </div>
-                              <div  className="invalid-feedback">
-                                 Пожалуйста, выберите на карте пункт доставки
                               </div>
                            </div>
                            <div  className="col">
