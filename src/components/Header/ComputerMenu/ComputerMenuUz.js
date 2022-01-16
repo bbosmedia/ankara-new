@@ -1,9 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import useBreadcrumbs from "use-react-router-breadcrumbs";
+import { updateSearchModal } from "../../../redux/FoodMenu";
 import ComputerMenuIcon from "./ComputerMenuIcon";
 
 const ComputerMenuUz = ({langModel, changeComputerMenu, openCartMenu, changeLogin, accessToken}) => {
+  const dispatch = useDispatch()
   const breadcrumbs = useBreadcrumbs();
   function navCalss(first) {
     if (breadcrumbs.length === 3) {
@@ -70,8 +73,8 @@ const ComputerMenuUz = ({langModel, changeComputerMenu, openCartMenu, changeLogi
             <a href="tel:1089" className="nav-item nav-link ya-number-link">
               1089
             </a>
-            <Link
-              to="#"
+            <a
+              onClick={()=>dispatch(updateSearchModal())}
               className="nav-item nav-link ya-cart-icon border-left-0 pt-0 pb-0"
             >
               <img
@@ -81,7 +84,7 @@ const ComputerMenuUz = ({langModel, changeComputerMenu, openCartMenu, changeLogi
                 src="/images/search.svg"
                 className="d-inline-block align-middle lazyLoad isLoaded"
               />
-            </Link>
+            </a>
             {accessToken.length === 0 && <a onClick={() =>changeLogin()}
               aria-current="page"
               className="nav-item nav-link border-left-0 pt-0 pb-0 nuxt-link-exact-active nuxt-link-active"

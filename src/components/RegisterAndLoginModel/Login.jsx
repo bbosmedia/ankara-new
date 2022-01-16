@@ -79,7 +79,6 @@ const Login = ({changeLogin}) => {
                     code: entercode.toString()
                   })
                 if(token.status === 200){
-                    console.log(token.data);
                     setPhone('');
                     setSentcode(false);
                     dispatch(updateAccesToken(token.data))

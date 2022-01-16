@@ -1,9 +1,12 @@
 import axios from 'axios'
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { YMaps, Map, Placemark } from 'react-yandex-maps'
+import { selectCoordinates } from '../../redux/FoodMenu'
 
 const ContactsPage = ({ lang }) => {
+	const coordinates = useSelector(selectCoordinates)
 	const [page, setPage] = useState(null)
 	const fetchPage = async () => {
 		try {
@@ -74,30 +77,19 @@ const ContactsPage = ({ lang }) => {
 					<div className="col-md-6">
 						<YMaps>
 							<Map style={{ height: '85vh' }} defaultState={{ center: [41.3308916, 69.2450557], zoom: 12 }}>
-								<Placemark
-									defaultGeometry={[41.3308916, 69.2450557]}
-									options={{
-										iconLayout: 'default#image',
-										iconImageHref: '/images/placemarker.png',
-										iconImageSize: [70, 70],
-									}}
-								/>
-								<Placemark
-									defaultGeometry={[41.3069837, 69.2811906]}
-									options={{
-										iconLayout: 'default#image',
-										iconImageHref: '/images/placemarker.png',
-										iconImageSize: [70, 70],
-									}}
-								/>
-								<Placemark
-									defaultGeometry={[41.3416481, 69.2211026]}
-									options={{
-										iconLayout: 'default#image',
-										iconImageHref: '/images/placemarker.png',
-										iconImageSize: [70, 70],
-									}}
-								/>
+							{coordinates &&
+								coordinates.map((coordinate) => {
+									return (
+										<Placemark
+											defaultGeometry={[parseFloat(coordinate.latitude), parseFloat(coordinate.longitude)]}
+											options={{
+												iconLayout: 'default#image',
+												iconImageHref: 'images/placemarker.png',
+												iconImageSize: [70, 70],
+											}}
+										/>
+									)
+								})}
 							</Map>
 						</YMaps>
 					</div>

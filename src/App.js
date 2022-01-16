@@ -1,186 +1,202 @@
-import React, { useState, useEffect } from "react";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import GallerPage from "./pages/Gallery/GallerPage";
-import HomePage from "./pages/HomePage/HomePage";
-import AboutPage from "./pages/AboutPage/AboutPage";
-import OfferPage from "./pages/OfferPage/OfferPage";
-import DeliveryPage from "./pages/DeliveryPage/DeliveryPage";
-import RulesPage from "./pages/RulesPage/RulesPage";
-import ActionsPage from "./pages/ActionsPage/ActionsPage";
-import ContactsPage from "./pages/ContactsPage/ContactsPage";
-import RestaurantsPage from "./pages/RestaurantsPage/RestaurantsPage";
-import GalleryItemPage from "./pages/GalleryItemPage/GalleryItemPage";
-import NotFoundPage from "./pages/NotFounPage/NotFoundPage";
-import SubActionPage from "./pages/SubActionPage/SubActionPage";
-import SubReatauranPage from "./pages/SubRestaurantPage/SubReatauranPage";
-import ChangeLanguageModal from "./components/Modals/ChangeLanguageModal";
-import ComputerMenuModal from "./components/Modals/ComputerMenuModal";
-import ProductMainPage from "./pages/ProductMainPage/ProductMainPage";
-import CartMenu from "./components/CartMenu/CartMenu";
-import MenuPage from "./pages/MenuPage/MenuPage";
-import ProfilePage from "./pages/ProfilePage/ProfilePage";
-import RegisterAndLogin from "./components/RegisterAndLoginModel/RegisterAndLogin";
-import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+import React, { useState, useEffect } from 'react'
+import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import GallerPage from './pages/Gallery/GallerPage'
+import HomePage from './pages/HomePage/HomePage'
+import AboutPage from './pages/AboutPage/AboutPage'
+import OfferPage from './pages/OfferPage/OfferPage'
+import DeliveryPage from './pages/DeliveryPage/DeliveryPage'
+import RulesPage from './pages/RulesPage/RulesPage'
+import ActionsPage from './pages/ActionsPage/ActionsPage'
+import ContactsPage from './pages/ContactsPage/ContactsPage'
+import RestaurantsPage from './pages/RestaurantsPage/RestaurantsPage'
+import GalleryItemPage from './pages/GalleryItemPage/GalleryItemPage'
+import NotFoundPage from './pages/NotFounPage/NotFoundPage'
+import SubActionPage from './pages/SubActionPage/SubActionPage'
+import SubReatauranPage from './pages/SubRestaurantPage/SubReatauranPage'
+import ChangeLanguageModal from './components/Modals/ChangeLanguageModal'
+import ComputerMenuModal from './components/Modals/ComputerMenuModal'
+import ProductMainPage from './pages/ProductMainPage/ProductMainPage'
+import CartMenu from './components/CartMenu/CartMenu'
+import MenuPage from './pages/MenuPage/MenuPage'
+import ProfilePage from './pages/ProfilePage/ProfilePage'
+import RegisterAndLogin from './components/RegisterAndLoginModel/RegisterAndLogin'
+import CheckoutPage from './pages/CheckoutPage/CheckoutPage'
 import { useDispatch } from 'react-redux'
-import {updateFoodMenu} from './redux/FoodMenu'
-import axios from "axios";
-import PrivateRoute from "./PrivateRoute";
-import OrderPage from "./pages/OrderPage/OrderPage";
+import { selectSearchModal, updateCoordinates, updateFoodMenu } from './redux/FoodMenu'
+import axios from 'axios'
+import PrivateRoute from './PrivateRoute'
+import OrderPage from './pages/OrderPage/OrderPage'
+import SearchModal from './components/Modals/SearchModal'
+import { useSelector } from 'react-redux'
 
 function App() {
-  const dispatch = useDispatch();
-  const [sitelang, setSitelang] = useState(false);
-  const [computermenu, setComputermenu] = useState(false);
-  const [cartmenu, setCartMenu] = useState(false);
-  const [logimodel, setLoginmoedel] = useState(false)
+	
+	const dispatch = useDispatch()
+	const searchmodel = useSelector(selectSearchModal);
+	const [sitelang, setSitelang] = useState(false)
+	const [computermenu, setComputermenu] = useState(false)
+	const [cartmenu, setCartMenu] = useState(false)
+	const [logimodel, setLoginmoedel] = useState(false)
 
-  const langModel = () =>{
-    setSitelang(!sitelang);
-  }
+	const langModel = () => {
+		setSitelang(!sitelang)
+	}
 
-  const changeComputerMenu = () =>{
-    setComputermenu(!computermenu);
-  }
+	const changeComputerMenu = () => {
+		setComputermenu(!computermenu)
+	}
 
-  const openCartMenu = () =>{
-    setCartMenu(!cartmenu);
-  }
+	const openCartMenu = () => {
+		setCartMenu(!cartmenu)
+	}
 
-  const changeLogin = () =>{
-    setLoginmoedel(!logimodel);
-  }
+	const changeLogin = () => {
+		setLoginmoedel(!logimodel)
+	}
 
-  const fetchMenuItems = async() =>{
-    try{
-        var items = await axios.get('https://api.ankara.uz/shop/category')
-        if(items.status === 200){
-            dispatch(updateFoodMenu(items.data));
-        }
-    }catch(e){
-        console.log(e);
-    }
-  }
-  useEffect(() => {
-    fetchMenuItems();
-  }, [])
+	const fetchMenuItems = async () => {
+		try {
+			var items = await axios.get('https://api.ankara.uz/shop/category')
+			if (items.status === 200) {
+				dispatch(updateFoodMenu(items.data))
+			}
+		} catch (e) {
+			console.log(e)
+		}
+	}
 
-  return (
-    <Router>
-      <div className="App">
-        <Header langModel={langModel} changeComputerMenu={changeComputerMenu} openCartMenu={openCartMenu} changeLogin={changeLogin} />
-        <Routes>
+	const fetchCoordinates = async () => {
+		try {
+			var items = await axios.get('https://api.ankara.uz/restaurants/coordinates')
+			if (items.status === 200) {
+				dispatch(updateCoordinates(items.data))
+			}
+		} catch (e) {
+			console.log(e)
+		}
+	}
+	useEffect(() => {
+		fetchMenuItems()
+    fetchCoordinates()
+	}, [])
 
-          {/* Main Page */}
-          <Route path="/" element={<HomePage lang='' />} />
-          <Route path="/uz" element={<HomePage lang="/uz" />} />
-          <Route path="/en" element={<HomePage lang="/en" />} />
+	return (
+		<Router>
+			<div className="App">
+				<Header langModel={langModel} changeComputerMenu={changeComputerMenu} openCartMenu={openCartMenu} changeLogin={changeLogin} />
+				<Routes>
+					{/* Main Page */}
+					<Route path="/" element={<HomePage lang="" />} />
+					<Route path="/uz" element={<HomePage lang="/uz" />} />
+					<Route path="/en" element={<HomePage lang="/en" />} />
 
-          {/* Menu Page */}
-          <Route  path="/menu" element={<MenuPage lang='/ru' />} />
-          <Route  path="/uz/menu" element={<MenuPage lang='/uz' />} />
-          <Route  path="/en/menu" element={<MenuPage lang='/en' />} />
+					{/* Menu Page */}
+					<Route path="/menu" element={<MenuPage lang="/ru" />} />
+					<Route path="/uz/menu" element={<MenuPage lang="/uz" />} />
+					<Route path="/en/menu" element={<MenuPage lang="/en" />} />
 
-          <Route  path="/menu/:id" element={<MenuPage lang='/ru' />} />
-          <Route  path="/uz/menu/:id" element={<MenuPage lang='/uz' />} />
-          <Route  path="/en/menu/:id" element={<MenuPage lang='/en' />} />
+					<Route path="/menu/:id" element={<MenuPage lang="/ru" />} />
+					<Route path="/uz/menu/:id" element={<MenuPage lang="/uz" />} />
+					<Route path="/en/menu/:id" element={<MenuPage lang="/en" />} />
 
-          {/* Gallery Page */}
-          <Route path="/gallery" element={<GallerPage />} />
-          <Route path="/uz/gallery" element={<GallerPage lang="/uz" />} />
-          <Route path="/en/gallery" element={<GallerPage lang="/en" />} />
+					{/* Gallery Page */}
+					<Route path="/gallery" element={<GallerPage />} />
+					<Route path="/uz/gallery" element={<GallerPage lang="/uz" />} />
+					<Route path="/en/gallery" element={<GallerPage lang="/en" />} />
 
-           {/* Gallery SubPage */}
-           <Route path="/gallery/:id" element={<GalleryItemPage />} />
-          <Route path="/uz/gallery/:id" element={<GalleryItemPage lang="/uz" />} />
-          <Route path="/en/gallery/:id" element={<GalleryItemPage lang="/en" />} />
+					{/* Gallery SubPage */}
+					<Route path="/gallery/:id" element={<GalleryItemPage />} />
+					<Route path="/uz/gallery/:id" element={<GalleryItemPage lang="/uz" />} />
+					<Route path="/en/gallery/:id" element={<GalleryItemPage lang="/en" />} />
 
-          {/* About Page */}
-          <Route path="/about" element={<AboutPage lang="/ru" />} />
-          <Route path="/uz/about" element={<AboutPage lang="/uz" />} />
-          <Route path="/en/about" element={<AboutPage lang="/en" />} />
+					{/* About Page */}
+					<Route path="/about" element={<AboutPage lang="/ru" />} />
+					<Route path="/uz/about" element={<AboutPage lang="/uz" />} />
+					<Route path="/en/about" element={<AboutPage lang="/en" />} />
 
-          {/* Delivery Page */}
-          <Route path="/delivery" element={<DeliveryPage lang='/ru' />} />
-          <Route path="/uz/delivery" element={<DeliveryPage lang='/uz' />} />
-          <Route path="/en/delivery" element={<DeliveryPage lang='/en' />} />
+					{/* Delivery Page */}
+					<Route path="/delivery" element={<DeliveryPage lang="/ru" />} />
+					<Route path="/uz/delivery" element={<DeliveryPage lang="/uz" />} />
+					<Route path="/en/delivery" element={<DeliveryPage lang="/en" />} />
 
-          {/* Offer Page */}
-          <Route path="/offer" element={<OfferPage lang="/ru" />} />
-          <Route path="/uz/offer" element={<OfferPage lang="/uz" />} />
-          <Route path="/en/offer" element={<OfferPage lang="/en" />} />
+					{/* Offer Page */}
+					<Route path="/offer" element={<OfferPage lang="/ru" />} />
+					<Route path="/uz/offer" element={<OfferPage lang="/uz" />} />
+					<Route path="/en/offer" element={<OfferPage lang="/en" />} />
 
-          {/* Rules Page */}
-          <Route path="/rules" element={<RulesPage lang="/ru" />} />
-          <Route path="/uz/rules" element={<RulesPage lang="/uz" />} />
-          <Route path="/en/rules" element={<RulesPage lang="/en" />} />
+					{/* Rules Page */}
+					<Route path="/rules" element={<RulesPage lang="/ru" />} />
+					<Route path="/uz/rules" element={<RulesPage lang="/uz" />} />
+					<Route path="/en/rules" element={<RulesPage lang="/en" />} />
 
-          {/* Actions Page */}
-          <Route path="/actions" element={<ActionsPage lang="" />} />
-          <Route path="/uz/actions" element={<ActionsPage lang="/uz" />} />
-          <Route path="/en/actions" element={<ActionsPage lang="/en" />} />
+					{/* Actions Page */}
+					<Route path="/actions" element={<ActionsPage lang="" />} />
+					<Route path="/uz/actions" element={<ActionsPage lang="/uz" />} />
+					<Route path="/en/actions" element={<ActionsPage lang="/en" />} />
 
-          {/* Sub Action Page */}
-          <Route path="/actions/:id" element={<SubActionPage lang="" />} />
-          <Route path="/uz/actions/:id" element={<SubActionPage lang="/uz" />} />
-          <Route path="/en/actions/:id" element={<SubActionPage lang="/en" />} />
+					{/* Sub Action Page */}
+					<Route path="/actions/:id" element={<SubActionPage lang="" />} />
+					<Route path="/uz/actions/:id" element={<SubActionPage lang="/uz" />} />
+					<Route path="/en/actions/:id" element={<SubActionPage lang="/en" />} />
 
-          {/* Contacts */}
-          <Route path="/contacts" element={<ContactsPage lang="/ru" />} />
-          <Route path="/uz/contacts" element={<ContactsPage lang="/uz" />} />
-          <Route path="/en/contacts" element={<ContactsPage lang="/en" />} />
+					{/* Contacts */}
+					<Route path="/contacts" element={<ContactsPage lang="/ru" />} />
+					<Route path="/uz/contacts" element={<ContactsPage lang="/uz" />} />
+					<Route path="/en/contacts" element={<ContactsPage lang="/en" />} />
 
-          {/* Restaurants */}
-          <Route path="/restaurants" element={<RestaurantsPage lang="/ru" />} />
-          <Route path="/uz/restaurants" element={<RestaurantsPage lang="/uz" />} />
-          <Route path="/en/restaurants" element={<RestaurantsPage lang="/en" />} />
+					{/* Restaurants */}
+					<Route path="/restaurants" element={<RestaurantsPage lang="/ru" />} />
+					<Route path="/uz/restaurants" element={<RestaurantsPage lang="/uz" />} />
+					<Route path="/en/restaurants" element={<RestaurantsPage lang="/en" />} />
 
-          {/* SubRestaurants */}
-          <Route path="/restaurants/:id" element={<SubReatauranPage lang="" />} />
-          <Route path="/uz/restaurants/:id" element={<SubReatauranPage lang="/uz" />} />
-          <Route path="/en/restaurants/:id" element={<SubReatauranPage lang="/en" />} />
+					{/* SubRestaurants */}
+					<Route path="/restaurants/:id" element={<SubReatauranPage lang="" />} />
+					<Route path="/uz/restaurants/:id" element={<SubReatauranPage lang="/uz" />} />
+					<Route path="/en/restaurants/:id" element={<SubReatauranPage lang="/en" />} />
 
-          <Route path='/product/:id' element={<ProductMainPage lang='' />} />
-          <Route path='/uz/product/:id' element={<ProductMainPage lang='/uz' />} />
-          <Route path='/en/product/:id' element={<ProductMainPage lang='/en' />} />
+					<Route path="/product/:id" element={<ProductMainPage lang="" />} />
+					<Route path="/uz/product/:id" element={<ProductMainPage lang="/uz" />} />
+					<Route path="/en/product/:id" element={<ProductMainPage lang="/en" />} />
 
-          <Route element={<PrivateRoute />}>
-            <Route path="/profile" element={<ProfilePage lang="/ru" />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="/uz/profile" element={<ProfilePage lang="/uz" />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="/en/profile" element={<ProfilePage lang="/en" />} />
-          </Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/profile" element={<ProfilePage lang="/ru" />} />
+					</Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/uz/profile" element={<ProfilePage lang="/uz" />} />
+					</Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/en/profile" element={<ProfilePage lang="/en" />} />
+					</Route>
 
-          <Route element={<PrivateRoute />}>
-            <Route path="/profile/:id" element={<OrderPage lang="/ru" />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="/uz/profile/:id" element={<OrderPage lang="/uz" />} />
-          </Route>
-          <Route element={<PrivateRoute />}>
-            <Route path="/en/profile/:id" element={<OrderPage lang="/en" />} />
-          </Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/profile/:id" element={<OrderPage lang="/ru" />} />
+					</Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/uz/profile/:id" element={<OrderPage lang="/uz" />} />
+					</Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/en/profile/:id" element={<OrderPage lang="/en" />} />
+					</Route>
 
-          <Route path="/checkout" element={<CheckoutPage lang='/ru' />} />
-          <Route path="/uz/checkout" element={<CheckoutPage lang='/uz' />} />
-          <Route path="/en/checkout" element={<CheckoutPage lang='/en' />} />
+					<Route path="/checkout" element={<CheckoutPage lang="/ru" />} />
+					<Route path="/uz/checkout" element={<CheckoutPage lang="/uz" />} />
+					<Route path="/en/checkout" element={<CheckoutPage lang="/en" />} />
 
-          <Route path='*' element={<NotFoundPage />}  />
-        </Routes>
+					<Route path="*" element={<NotFoundPage />} />
+				</Routes>
 
-        {/* Footer */}
-        <Footer />
-        <ChangeLanguageModal sitelang={sitelang} langModel={langModel} />
-        <ComputerMenuModal computerMenu={computermenu} changeComputerMenu={changeComputerMenu} />
-        {cartmenu && <CartMenu openCartMenu={openCartMenu} />}
-        {logimodel && <RegisterAndLogin changeLogin={changeLogin} />}
-      </div>
-    </Router>
-  );
+				{/* Footer */}
+				<Footer />
+				<ChangeLanguageModal sitelang={sitelang} langModel={langModel} />
+				<ComputerMenuModal computerMenu={computermenu} changeComputerMenu={changeComputerMenu} />
+				{cartmenu && <CartMenu openCartMenu={openCartMenu} />}
+				{logimodel && <RegisterAndLogin changeLogin={changeLogin} />}
+				{searchmodel && <SearchModal />}
+			</div>
+		</Router>
+	)
 }
 
-export default App;
+export default App

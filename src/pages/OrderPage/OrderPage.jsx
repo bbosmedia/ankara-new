@@ -18,7 +18,6 @@ const OrderPage = ({ lang }) => {
             var items = await axios.get('https://api.ankara.uz/order/view/' + id, {headers: {'Authorization': 'Bearer ' + accessToken}})
             if(items.status === 200){
                 setOrder(items.data)
-                console.log(items.data)
             }
         }catch(e){
             console.log(e);
@@ -26,7 +25,7 @@ const OrderPage = ({ lang }) => {
     }
     useEffect(() => {
         fetchOrderItems();
-    }, [id, lang])
+    }, [id])
 
     if(order ===  null) return null;
   return (
