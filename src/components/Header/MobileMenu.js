@@ -1,7 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { updateSearchModal } from "../../redux/FoodMenu";
 
 const MobileMenu = ({openCartMenu, changeLogin}) => {
+  const dispatch = useDispatch()
   return (
     <div className="ya-mobile-menu d-flex d-md-none">
       <Link
@@ -32,17 +35,18 @@ const MobileMenu = ({openCartMenu, changeLogin}) => {
         />
       </Link>
       <div className="d-flex">
-        <a
-          href="#"
-          className="nav-item nav-link ya-cart-icon border-left-0 pt-0 pb-0"
-        >
-          <img
-            loading="lazy"
-            height="26"
-            src="/images/search.svg"
-            className="d-inline-block align-middle lazyLoad"
-          />
-        </a>
+      <a
+              onClick={()=>dispatch(updateSearchModal())}
+              className="nav-item nav-link ya-cart-icon border-left-0 pt-0 pb-0"
+            >
+              <img
+                alt="Search Icon"
+                loading="lazy"
+                height="26"
+                src="/images/search.svg"
+                className="d-inline-block align-middle lazyLoad isLoaded"
+              />
+            </a>
         <Link to="/profile" className="p-0 mr-4">
           <img
             loading="lazy"
