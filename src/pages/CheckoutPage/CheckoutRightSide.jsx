@@ -2,10 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { numberWithSpaces } from "../../functionsAnkara";
 import { selectCartTotalAmount, selectCart } from "../../redux/CartRedux";
+import { selectOrderType } from "../../redux/Checkout";
 
 
 
 const CheckoutRightSide = ({ lang }) => {
+  const ordert = useSelector(selectOrderType)
   const totalAmount = useSelector(selectCartTotalAmount);
   const items = useSelector(selectCart);
   console.log(items);
@@ -18,7 +20,7 @@ const CheckoutRightSide = ({ lang }) => {
         <ProductCard key={item.id.toString} lang={lang} item={item} />
       ))}
 
-      <div className="checkout-total d-flex justify-content-between">
+      {ordert === 2 && <div className="checkout-total d-flex justify-content-between">
         {lang === "/ru" && <p>Всего к оплате:</p>}
         {lang === "/en" && <p>Total payable:</p>}
         {lang === "/uz" && <p>Jami to'lov:</p>}
@@ -28,7 +30,33 @@ const CheckoutRightSide = ({ lang }) => {
           {lang === "/en" && " sum"}
           {lang === "/uz" && " so'm"}
         </p>
+      </div>}
+      {ordert === 1 && 
+      <>
+      <div className="checkout-total d-flex justify-content-between">
+        {lang === "/ru" && <p>Стоимость доставки:</p>}
+        {lang === "/en" && <p>Cost of delivery:</p>}
+        {lang === "/uz" && <p>Yetkazib berish narxi:</p>}
+        <p className="font-weight-bold">
+          {numberWithSpaces(10000)}
+          {lang === "/ru" && " сум"}
+          {lang === "/en" && " sum"}
+          {lang === "/uz" && " so'm"}
+        </p>
       </div>
+      <div className="checkout-total d-flex justify-content-between">
+        {lang === "/ru" && <p>Всего к оплате:</p>}
+        {lang === "/en" && <p>Total payable:</p>}
+        {lang === "/uz" && <p>Jami to'lov:</p>}
+        <p className="font-weight-bold">
+          {numberWithSpaces(totalAmount + 10000)}
+          {lang === "/ru" && " сум"}
+          {lang === "/en" && " sum"}
+          {lang === "/uz" && " so'm"}
+        </p>
+      </div>
+      </>
+      }
     </div>
   );
 };

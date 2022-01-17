@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { changeOrderType, selectOrderType } from '../../redux/Checkout'
+import { changeOrderType, changeTextOrder, selectCoords, selectOrderType, selectTextOrder, selectValidateMap } from '../../redux/Checkout'
 import CheckoutMap from './CheckoutMap'
 import CheckoutPageOrderTop from './CheckoutPageOrderTop'
 import CheckoutPageOrderTwo from './CheckoutPageOrderTwo'
@@ -11,6 +11,9 @@ import FormCheckboxes from './FormCheckboxes'
 const ChekoutLeftSide = ({ lang }) => {
 	const dispatch = useDispatch()
 	const orderType = useSelector(selectOrderType);
+	const coords = useSelector(selectCoords);
+	const textOrder = useSelector(selectTextOrder);
+	const validateMap = useSelector(selectValidateMap);
 	return (
 		<div className="col-md-8">
 			<div className="tabs checkout-pills" id="__BVID__1291">
@@ -37,17 +40,25 @@ const ChekoutLeftSide = ({ lang }) => {
 						<form action="/">
 							<CheckoutPageOrderTop lang={lang} />
 							{orderType === 1 && <CheckoutMap />}
-							{orderType === 1 && <CheckoutMap />}
-							<p style={{marginTop: '20px'}}>
-								<em>* Найдите на карте адрес доставки и кликайте на него.</em>
-							</p>
+							{validateMap === false && 
+							<>
+							{coords.length != 2 && <p style={{marginTop: '20px', color: 'red'}}>
+								{lang === '/ru' && <em>* Найдите на карте адрес доставки и кликайте на него.</em>}
+								{lang === '/en' && <em>* Find the delivery address on the map and click on it.</em>}
+								{lang === '/uz' && <em>* Xaritada yetkazib berish manzilini toping va ustiga bosing.</em>}
+							</p>}
+							</>
+							}
+							
 							{orderType === 1 && <CheckoutPageOrderTwo lang={lang} />}
 							{lang === '/ru' && <h5 className="mb-4">Выберите способ оплаты</h5>}
 							{lang === '/en' && <h5 className="mb-4">Select a payment method</h5>}
 							{lang === '/uz' && <h5 className="mb-4">To'lov turini </h5>}
 							<FormCheckboxes lang={lang} />
 							<div className="form-row form-mb">
-								<textarea rows="6" placeholder="Комментарий к заказу" className="form-control"></textarea>
+								{lang === '/ru' && <textarea rows="6" value={textOrder} onChange={(e)=>dispatch(changeTextOrder(e.target.value))} placeholder="Комментарий к заказу" className="form-control"></textarea>}
+								{lang === '/en' && <textarea rows="6" value={textOrder}  onChange={(e)=>dispatch(changeTextOrder(e.target.value))} placeholder="Comment to the order" className="form-control"></textarea>}
+								{lang === '/uz' && <textarea rows="6" value={textOrder} value={textOrder}  onChange={(e)=>dispatch(changeTextOrder(e.target.value))} placeholder="Buyurtmaga sharh qoldiring" className="form-control"></textarea>}
 							</div>
 							<ChekcoutButtons  lang={lang} />
 						</form>
