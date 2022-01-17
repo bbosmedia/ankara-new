@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate, useRoutes } from 'react-router-dom'
-import { selectSentCartItems } from '../../redux/CartRedux'
+import { deleteCard, selectSentCartItems } from '../../redux/CartRedux'
 import { selectAccesToken } from '../../redux/ChangeRegister'
 import { addPayment, checkvalidation, selectCoords, selectFull, selectHome, selectOrderType, selectPaymentType, selectStreet, selectTextOrder } from '../../redux/Checkout'
 
@@ -42,6 +42,7 @@ const ChekcoutButtons = ({ lang }) => {
 				)
 				if (item.status === 200) {
 					dispatch(addPayment(item.data))
+					dispatch(deleteCard());
 					if (lang === '/uz') {
 						navigate('/uz', { replace: true })
 					} else if (lang === '/en') {
