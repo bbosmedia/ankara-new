@@ -8,6 +8,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
+    "create-react-app": "^5.0.0",
     "dotenv": "^12.0.4",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",

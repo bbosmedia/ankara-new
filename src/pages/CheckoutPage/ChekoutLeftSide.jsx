@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Map, Placemark, YMaps } from 'react-yandex-maps'
+import CheckoutMap from './CheckoutMap'
 import CheckoutPageOrderTop from './CheckoutPageOrderTop'
 import CheckoutPageOrderTwo from './CheckoutPageOrderTwo'
 import FormCheckboxes from './FormCheckboxes'
-import MapGoogle from './MapGoogle'
 
 const ChekoutLeftSide = ({ lang }) => {
    console.log(process.env.REACT_APP_GOOGLE_KEY)
@@ -33,22 +33,7 @@ const ChekoutLeftSide = ({ lang }) => {
 					<div role="tabpanel" aria-hidden="false" className="tab-pane active card-body" id="__BVID__1292" aria-labelledby="__BVID__1292___BV_tab_button__">
 						<form action="/">
 							<CheckoutPageOrderTop lang={lang} />
-							{/* <MapGoogle style={{ height: '100vh' }} googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_GOOGLE_KEY}&v=3.exp&libraries=geometry,drawing,places`} loadingElement={<div style={{ height: `100%` }} />} containerElement={<div style={{ height: `400px` }} />} mapElement={<div style={{ height: `100%` }} />} /> */}
-
-							<div style={{ height: '500px' }}>
-								<YMaps>
-									<Map style={{ height: '100%' }} defaultState={{ center: [41.2995, 69.2401], zoom: 12 }} options={{}}>
-										<Placemark
-											defaultGeometry={[41.3308916, 69.2450557]}
-											options={{
-												iconLayout: 'default#image',
-												iconImageHref: 'images/placemarker.png',
-												iconImageSize: [70, 70],
-											}}
-										/>
-									</Map>
-								</YMaps>
-							</div>
+							<CheckoutMap />
 							<p>
 								<em>* Найдите на карте адрес доставки и кликайте на него.</em>
 							</p>
