@@ -13,6 +13,7 @@ const checkoutSlice = createSlice({
         validateHome: true,
 		paymentType: "",
 		coords: [],
+		orderType: 1,
 	},
 	reducers: {
 		changeName(state, action) {
@@ -68,11 +69,15 @@ const checkoutSlice = createSlice({
 
 		chnageCoords(state, action){
 			state.coords = action.payload;
+		},
+
+		changeOrderType(state, action){
+			state.orderType = parseInt(action.payload);
 		}
 	},
 })
 
-export const { changeName, changePhone, changeStreet, changeHome, changePayment, chnageCoords } = checkoutSlice.actions
+export const { changeName, changePhone, changeStreet, changeHome, changePayment, chnageCoords, changeOrderType } = checkoutSlice.actions
 
 export const selectName = (state) => state.checkout.name
 export const selectPhone = (state) => state.checkout.phone
@@ -84,5 +89,6 @@ export const selectStreetValidate = (state) => state.checkout.validateStreet
 export const selectHomeValidate = (state) => state.checkout.validateHome
 export const selectPaymentType = (state) => state.checkout.paymentType
 export const selectCoords = (state) => state.checkout.coords
+export const selectOrderType = (state) => state.checkout.orderType;
 
 export default checkoutSlice.reducer

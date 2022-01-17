@@ -32,9 +32,8 @@ import SearchModal from './components/Modals/SearchModal'
 import { useSelector } from 'react-redux'
 
 function App() {
-	
 	const dispatch = useDispatch()
-	const searchmodel = useSelector(selectSearchModal);
+	const searchmodel = useSelector(selectSearchModal)
 	const [sitelang, setSitelang] = useState(false)
 	const [computermenu, setComputermenu] = useState(false)
 	const [cartmenu, setCartMenu] = useState(false)
@@ -79,7 +78,7 @@ function App() {
 	}
 	useEffect(() => {
 		fetchMenuItems()
-    fetchCoordinates()
+		fetchCoordinates()
 	}, [])
 
 	return (
@@ -180,9 +179,15 @@ function App() {
 						<Route path="/en/profile/:id" element={<OrderPage lang="/en" />} />
 					</Route>
 
-					<Route path="/checkout" element={<CheckoutPage lang="/ru" />} />
-					<Route path="/uz/checkout" element={<CheckoutPage lang="/uz" />} />
-					<Route path="/en/checkout" element={<CheckoutPage lang="/en" />} />
+					<Route element={<PrivateRoute />}>
+						<Route path="/checkout" element={<CheckoutPage lang="/ru" />} />
+					</Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/uz/checkout" element={<CheckoutPage lang="/uz" />} />
+					</Route>
+					<Route element={<PrivateRoute />}>
+						<Route path="/en/checkout" element={<CheckoutPage lang="/en" />} />
+					</Route>
 
 					<Route path="*" element={<NotFoundPage />} />
 				</Routes>
