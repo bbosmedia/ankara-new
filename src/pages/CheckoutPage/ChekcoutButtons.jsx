@@ -20,9 +20,8 @@ const ChekcoutButtons = ({ lang }) => {
 	const validationFull = useSelector(selectFull)
 	const note = useSelector(selectTextOrder)
 	const orderFetch = async () => {
-		console.log(accesss)
 		dispatch(checkvalidation())
-		if (validationFull) {
+		setTimeout(() => {if (validationFull) {
 			try {
 				var item = await axios.post(
 					'https://api.ankara.uz/shop/cart/checkout',
@@ -54,7 +53,7 @@ const ChekcoutButtons = ({ lang }) => {
 			} catch (e) {
 				console.log(e)
 			}
-		}
+		}}, 500);
 	}
 	return (
 		<div className="form-row d-flex justify-content-between align-items-center">
